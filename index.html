@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+	<head id='demo'>
+		<link rel="stylesheet" href="fronter.css">
+		Content-Type: resume/jesstucker; charset=utf-8
+	</head>
+
+<body style='width:366px;' onload='startTime()'>
+	<div id='header'>
+		<h1>IN THE WEEDS</h1><BR>
+		<!-- <div style='position:absolute; border: 2px solid black;'>
+			<SPAN style='position:relative; font-size: 85%;font-weight: 900; margin-top:-25px; border-width: 0px 2px 2px 0px; border-style: solid; border-color: black;'>PG-13</SPAN>
+			<SPAN style='position:relative; padding-top: 2px;padding-bottom: 2px;font-size: 55%;margin-top:-25px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: black; padding-left: 10px; margin-left: -4px;'>PARENTS STRONGLY CAUTIONED &#9775;</SPAN>
+			<BR>
+			<SPAN style='font-size: 1%;'>SOME MATERIAL MAY BE INAPPROPRIATE FOR HR/RECRUITERS UNDER 13</SPAN>
+		</div> -->
+		<h6 id='date' style='margin-top:-40px;'></h6>
+	</div>
+
+
+	
+
+
+
+
+
+
+
+
+
+	<div>
+
+		REDUCED DEMO<br>
+		5/16/2017  10:36:22 PM<br>
+		<br>
+
+		<BR> MAKE FLASK APP THAT:<BR>
+		&nbsp;&nbsp;1. ACCEPTS INPUT<BR>
+		&nbsp;&nbsp;2. SAVES IT<BR>
+		&nbsp;&nbsp;3. READS IT BACK.<BR>
+		<br>
+		<br>
+		FLASK AS A BASIC POST FORM<br>
+		DATABASE: REMOVED<br>
+		TEMPLATES: REMOVED<br> 
+		OH HOW SIMPLE<br>
+		<BR>
+
+		MY TUTORIAL<BR>
+		<br>
+		<br>
+
+
+		<div style='border:1px solid black; 
+					width:660px; 
+					padding-top: 3px;
+					background-color:rgba(255, 255, 255, 1);'>
+
+		<span>
+			<span>&nbsp;&#9775;&nbsp;&#9775;&nbsp;&#9775;&nbsp;&nbsp;</span><span style='margin-top:auto;'>__________________THE_TERMINAL_N'_COOL_THINGS..._____________________</span>
+		</span>
+			
+		<hr style='margin-top:0px;'>
+					<pre>
+/		>> mkdir flasko &amp;&amp; cd flasko
+/flasko		>> virtualenv venv
+/flasko		>> source venv/bin/activate
+(venv)/flasko	>> pip install flask
+(venv)/flasko	>> vi hola.py
+
+<div style='background-color:#2f3030; color:white; width:659px;'>
+  1 from flask import Flask, request
+  2 app = Flask(__name__)
+  3
+  4 @app.route('/', methods=['GET'])
+  5 def form():
+  6     return '''
+  7             &lt;form method="post" action="/post"&gt;
+  8             &lt;label for="say"&gt;SAY WHAT?&lt;/label&gt;&lt;input name="say"&gt;
+  9             &lt;label for="to"&gt;TO WHOM?&lt;/label&gt;&lt;input name="to"&gt;
+ 10             &lt;button&gt;Send POST&lt;/button&gt;
+ 11             &lt;/form&gt;
+ 12            '''
+ 13
+ 14 @app.route('/post', methods=['POST'])
+ 15 def hello():
+ 16     textfile = open('textfile.txt', 'wb')
+ 17     textfile.write(request.form['say'] + ',' + request.form['to'] + '\n')
+ 18     textfile.seek(0)
+ 19     return 'Stored: &lt;br&gt; {0} &lt;br&gt;'.format(textfile.read().replace('\n', '&lt;br&gt;'))
+ 20
+ 21 if __name__ == "__main__":
+ 22     app.run(debug=True)
+ </div>
+
+(venv)/flasko 	>> python hola.py <br>
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 123-456-789
+			</pre>
+		</div>
+		<p>
+		Visit http://127.0.0.1:5000/ and enter form information. The form POST data saves to text file, and reads back every entry.
+		</p>
+		<br>
+		<br>
+		<br>
+	</div>
+		
+			5/13/2017  11:02:23 PM<br>
+			TODAY I LEARNED THAT ALL ENGINEERING PROBLEMS CAN BE DIVIDED INTO TWO CATEGORIES:<br> 
+			<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. THINGS YOU KNOW<BR>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. THINGS YOU DON'T <BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. PLUS OTHER STUFF
+
+			<DIV style='font-size:200px;'> 2</DIV>
+			<br>
+			<br>
+			I DON'T<br>
+			<BR>
+			<BR>
+			<I style='font-size: 150%; font-family: Snell Roundhand, cursive'> Dearest Diary,<BR>
+			The practically insurmountable transition from beginner to intermediate programmer is driving me crazy! Hours of tracing which library contains the inheritance class whose __init__() method alone extends into infinite oblivion! What was I doing again? I feel like I might scream! 
+			</I>
+
+			<br>
+			<br>
+			<div style='width:7900px; margin-top: -1172px; margin-bottom: -270px;'>
+			<span style='font-size:1px;'>A</span>
+			<span style='font-size:2px;'>A</span>
+			<span style='font-size:3px;'>A</span>
+			<span style='font-size:4px;'>A</span>
+			<span style='font-size:5px;'>A</span>
+			<span style='font-size:6px;'>A</span>
+			<span style='font-size:7px;'>A</span>
+			<span style='font-size:8px;'>A</span>
+			<span style='font-size:9px;'>A</span>
+			<span style='font-size:10px;'>A</span>
+			<span style='font-size:12px;'>A</span>
+			<span style='font-size:14px;'>A</span>
+			<span style='font-size:16px;'>A</span>
+			<span style='font-size:19px;'>A</span>
+			<span style='font-size:21px;'>A</span>
+			<span style='font-size:24px;'>A</span>
+			<span style='font-size:28px;'>A</span>
+			<span style='font-size:32px;'>A</span>
+			<span style='font-size:36px;'>A</span>
+			<span style='font-size:42px;'>A</span>
+			<span style='font-size:50px;'>A</span>
+			<span style='font-size:60px;'>A</span>
+			<span style='font-size:72px;'>A</span>
+			<span style='font-size:86px;'>A</span>
+			<span style='font-size:104px;'>A</span>
+			<span style='font-size:120px;'>A</span>
+			<span style='font-size:138px;'>A</span>
+			<span style='font-size:159px;'>A</span>
+			<span style='font-size:219px;'>A</span>
+			<span style='font-size:319px;'>A</span>
+			<span style='font-size:459px;'>A</span>
+			<span style='font-size:559px;'>A</span>
+			<span style='font-size:659px;'>A</span>
+			<span style='font-size:759px;'>A</span>
+			<span style='font-size:859px;'>A</span>
+			<span style='font-size:959px;'>A</span>
+			<span style='font-size:1059px;'>A</span>
+			<span style='font-size:1159px;'>A</span>
+			<span style='font-size:1259px;'>A</span>
+
+
+			</div>
+
+			<I style='font-size: 150%; font-family: Snell Roundhand, cursive'>
+			Thanks for listening.<BR>
+			But please stop looking out that window?<BR>
+			Yours,<BR>
+			Jess<BR>
+
+			&lt;BRB&gt;
+			</I>
+
+
+			<BR>
+			<BR>
+			<BR>
+			<BR>
+			<BR>
+
+	</p>
+
+<hr>
+	<p>
+		5/10/2017  5:48:00 PM
+		THIS IS ALL WRONG; I'M GOING BACK TO THE FLASK BOOK. CH. 4 PROBABLY<br>
+			ten questions whose answering will actually help you develop backend skills
+		<br>
+		QUESTION 1<br>
+		actually show me the steps to upload a text field and display it<br>
+
+		0. download virtualenv<br>
+		0. install virtual environment in parent folder and activate it:<br>
+				source venv/bin/activate<br>
+		0. pip install flask, wtforms, sqlalchemy<br>
+
+
+		1. create file called 'models.py' and a class within called 'Texts' as such:<br>
+		<pre>
+		from . import db
+		class Texts():
+			text = db.Column(db.Text())
+		</pre>
+
+		2. create file called 'forms.py' and a class within called 'TextForm' as such:<br>
+		<pre>
+		from wtforms import FlaskForm
+		from wtforms import StringField, SubmitField
+		from wtforms.validators import Required
+		class TextForm(FlaskForm):
+			text = StringField('Enter some text', validators=[Required()])
+			submit = SubmitField('Submit')
+		</pre>
+
+		3. create file called 'views.py' and within it, create two functions: <br>one for the upload form, and one for the index view for all text uploads<br>
+
+		<pre>
+		from . import models
+		from . import forms
+		from Flask import render_template, redirect, url_for, flash, session
+		@route('/upload', methods=['GET','POST'])
+		def upload():
+			form = TextForm()
+			if form.validate_on_submit():
+				a_text = Texts(text=form.text.data)
+				db.session.add(a_text)
+				db.session.commit()
+				flash('You added a text entry')
+				return render_template('/upload')
+			return render_template('upload.html')
+
+		@route('/', method=['GET'])
+		def index():
+			texts = Texts()
+			return render_template('index.html', texts=texts)
+		</pre>
+
+		4. create folder called template for html template index view called 'index.html'<br>
+		templates/index.html<br>
+		<pre><h1>In the db:</h1>
+		{% if texts %}{{ texts }}{% else %}Nuthin'{% endif %}
+		</pre>
+			...and one for the forms page...
+		<pre>
+		<h1>Upload</h1>
+		{% import bootstrap/wtf.html as wtf %}
+		{{ wtf.quick_form(form) }}
+		</pre>
+
+	</p>
+
+	<img src='images/g.jpg'>
+	<img src='images/f.jpg'>
+	<img src='images/lady.jpg'>
+	<img src='images/head.jpg'>
+	<img src='images/bust.jpg'>
+	<button onclick='dumbButt()'>Dumb</button>
+	<div id='butt' style='width:366px; '>
+	SOFTWARE DEVELOPER<br>
+	SUMMÄRY TO WHÖM IT MAY CONCERN:<br>
+	I ONCE WALLFLOWERED A HACKER NEWS MEETUP AND DECIDED THAT IF THESE SKINNIE BEERBATING INCULOADERS WERE PAID 3X WHAT CIVIL SERVANTS GOT THEN I SHOULD GET IN ON THIS GROUND FLOOR TOO. SO I'LL WORK ENTIRELY ON COMPANY EQUITY TIL WE GO PUBLIC <br><br>I'VE ALSO SEEN THAT SHOW SILICONE VALLELY AND THAT SEEMS LIKE A FUN LIFE TO HAVE FOR A MILLENIAL EVEN THOUGH I'M GEN X AT HEART.<br>
+	KINDEST REGARDS,<br>
+	JESS<br>
+	P.S. &#x1F60F;<BR>
+
+
+
+		<ul class='myUL'>
+			<li >I program</li>
+			<li>I network </li>
+			<li>Eh</li>
+			<li>Sup</li>
+			<li class='checked'>Bark More</li>
+			<li>When in Rome, I bro out</li>
+			<li>Then I bro out some more</li>
+			<li>Your HR guy knows nothing</li>
+			<li style='background-color: #272822;color:white'><pre>experience = <span style='color:#66D9EF'>0</span>
+<span style='color:#ff4242'>for</span> lie <span style='color:#ff4242'>in</span> interview:
+    experience += experience ** lie
+    <span style='color:#ff4242'>fabricate </span>experience, 10 years + <span style='color:orange;'>'react.js'</span></pre></li>
+			<li style='width:325px;'>I belabor over this LaTeX resume. did u notice</li>
+			<li>We discuss your math professor</li>
+			<li class='checked'>I Per day: 16 hours programming, 8 hours lifting </li>
+			<li>Whiteboard like it's 199goodwill hunting</li>
+			<li class='checked' style='font-size: 16px;'>&Theta;(&ntilde;!)
+			<li class='checked'>Timetravel to UNIX epoch to kill Sarah Conor</li>
+		</ul> 
+	</div>
+	<div id='abox'>
+		<div id='d'>
+			<div class='diagonal'>
+			Design
+			</div>
+			<div class='diagonal' id='f'>
+			is dumb
+			</div>
+		</div>
+	</div>
+	<div id='todo'>
+		<div id='myDIV' class='header'>
+			<h2>DUMB LIST</h2>
+			<input type='text' id='myInput' placeholder="Title...">
+			<span onclick='newElement()' class='addBtn'>Add</span>
+		</div>
+
+		<ul id='myUL'>
+			<li>U</li>
+			<li class='checked'>R</li>
+			<li>DONALD TRUMP</li>
+			<li>RONALD REAGAN</li>
+			<li><img src='images/head.jpg'></li>
+			<li>DONALD TRUMP</li>
+		</ul>
+	</div>
+
+
+<script type="text/javascript" src="dunno.js"></script>
+<script type='text/javascript' src='dumb.js'></script>
+<script>
+		function startTime() {
+		    var today = new Date();
+		    var mo = today.getMonth();
+		    var d = today.getDate();
+		    var y = today.getFullYear();
+		    var h = today.getHours();
+		    var m = today.getMinutes();
+		    var s = today.getSeconds();
+		    m = checkTime(m);
+		    s = checkTime(s);
+		    document.getElementById('date').innerHTML =
+		    mo+1 + '/' + d + '/' + y + ' ' + 
+		    h + ":" + m + ":" + s;
+		    var t = setTimeout(startTime, 1500);
+		}
+		function checkTime(i) {
+		    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+		    return i;
+		}
+
+	</script>
+</body>
+</html>
