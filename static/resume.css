@@ -81,13 +81,14 @@ tr > *:nth-child(3) {
 	animation: hideshow .5s linear infinite;
 }
 
+
 @keyframes hideshow {
-  0% { transform: translate(0%, 0%); }
-  33% { transform: translate(0%, -10%); }
-  66% {transform: translate(0%, 10%);}
-  100% { transform: translate(0%, 0%); }
-/*  15% { opacity: 0; }
-  100% { opacity: 0; }*/
+
+  0% { transform: translate(0px, 0px); }
+  33% { transform: translate(0px, -1px); }
+  66% {transform: translate(0px, 1px);}
+  100% { transform: translate(0px, 0px); }
+
 } 
 
 
