@@ -2,10 +2,10 @@
 	font-family: 'ComputerModern';
 	src: url('ComputerModern/Serif/cmunrm.ttf');
 }
-
-body {
+body{
 	font-family: 'ComputerModern';
 	white-space: nowrap;
+
 
 }
 
@@ -14,22 +14,86 @@ body {
 	padding: 10%;
 }
 
-div + div {
-	margin-bottom: 40px;
+#inner-wrapper{
+	border-radius: 3px;
+	border: 1px dotted #eaeaea;
+}
+#heading{
+	/*height: 20%;*/
+	height:150px;
+	min-height: 20%;
+	width: 100%;
+	background-color: #F4F0EE59;
+	background-image: 
+		linear-gradient(90deg, transparent 16.5%, #FD423780 16.85%, #FD4237D9 16.5%, transparent 16.85%),
+		linear-gradient(90deg, transparent 82.65%, #FD42371A 83.1%, #FD42371A 82.65%, transparent 83.1%);
+		/*linear-gradient(#58D7E540 .2em, transparent .2em);*/
+		background-size: 100% 1.7em;
 }
 
-#skills {
-	width: 100%;
+#body {
+	
+	background-color: #F4F0EE59; 
+	background-image: 
+		linear-gradient(90deg, transparent 16.5%, #FD423780 16.85%, #FD4237D9 16.5%, transparent 16.85%),
+		linear-gradient(90deg, transparent 82.65%, #FD42371A 83.1%, #FD42371A 82.65%, transparent 83.1%),
+		linear-gradient(#58D7E540 .2em, transparent .2em);
+		background-size: 100% 1.7em;
+
 }
+
+#body-content-wrapper{
+	/*width: 100%;*/
+
+}
+
+#body-content{
+	display: inline-block;
+	width: 66%;
+	margin-left: auto;
+	margin-right: auto;
+	display:block;
+}
+#pusher{
+	height:0.55em;
+}
+
+#sig-wrap{
+	font-size:.5em;
+	width:17%;
+	float:right;
+}
+#signature {
+	/*text-align: center;*/
+	/*vertical-align: middle;*/
+}
+
+#name {
+	margin-left: 33%;
+	margin-right: 28%;
+	margin-top: 28%;
+	color: grey;
+}
+
+#clock {
+	margin-left: 33%;
+	margin-right: 28%;
+	color: grey;
+}
+
 #selfportrait {
-  	float: right;
-  	width:inherit;
+  	/*width:100%;*/
+  	text-align: middle;
 }
+#selfportrait-object {
+  	width:100%;
+}
+
 
 #lunch {
 	display:block;
-	float:right;
-	width: 37%;
+/*	float:right;
+	width: 37%;*/
 	clear: both;
 }
 
@@ -37,9 +101,7 @@ div + div {
  	box-shadow: none;
  }
 
-#leftside {
-	float: left;
-}
+
 #rightside {
 	float: right;
 	width:60%;
@@ -49,10 +111,6 @@ ul {
 	margin:0; 
 	padding:0; 
 	list-style:none; 
-}
-
-#clock {
-	font-size: 80%;
 }
 
 table {
@@ -73,12 +131,175 @@ tr > *:nth-child(3) {
     display: none;
 }
 
-#path5805 {
-	animation: hideshow .5s ease infinite;
+/*hair*/
+#path5803{
+	fill: #D2F1F3F0 !important;
+	stroke: #D2F1F3F0 !important;
 }
 
+/*eyebrow*/
+#path5805 {
+	animation: hideshow .5s ease infinite;
+	fill: #D2F1F3F0 !important;
+	stroke: #D2F1F3F0 !important;
+}
+/*eyebrow*/
 #path5807 {
 	animation: hideshow .5s linear infinite;
+	fill: #D2F1F3F0 !important;
+	stroke: #D2F1F3F0 !important;
+}
+/*face*/
+#path3456{
+	stroke: #FD423780 !important;
+	fill: #FDFAF8F0 !important;
+}
+
+/*neck*/
+#path3452{
+	stroke: #FD423780 !important;
+	fill: #FDFAF8F0 !important;
+
+}
+
+/*right eye lid */
+#path5829{
+	stroke: #FD423780 !important;
+}
+/*right eye a*/
+#path5719{
+	fill: #FBFAF9F0 !important;
+	stroke: #FD423780 !important;
+}
+/*right eye b*/
+#path5929{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+}
+/*right eye c*/
+#path5721{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+}
+
+/*left eye lid*/
+#path5831{
+	stroke: #FD423780 !important;
+}
+/*left eye a */
+#path5735{
+	fill: #FBFAF9F0 !important;
+	stroke: #FD423780 !important;
+}
+/*left eye b */
+#path5737{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+}
+/*left eye c*/
+#path5809{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+}
+/*left eye d*/
+#path5927{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+}
+
+/*nose tip*/
+#path5739{
+	fill: #FD423710 !important;
+	stroke: #FD423780 !important;
+}
+/*nose ridge*/
+#path5848{
+	stroke: #FD423780 !important;
+}
+/*nose hole right*/
+#path5956{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+}
+/*nose hole left*/
+#path5958{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;	
+}
+/*nostril right*/
+#path5844 {
+	stroke: #FD423780 !important;
+}
+/*nostril left*/
+#path5842 {
+	stroke: #FD423780 !important;
+}
+/*mouth hole*/
+#path5952{
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+}
+/*teeth*/
+#path5763{
+	fill: #FBFAF9F0 !important;
+	stroke: #FD423780 !important;
+}
+/*lips*/
+#path5792{
+	fill: #FD423710 !important;
+	stroke: #FD423780 !important;
+}
+
+/*cheek right*/
+#path5815{
+	stroke: #FD423780 !important;	
+}
+
+/*cheek right detail*/
+#path5833{
+	stroke: #FD423780 !important;	
+}
+
+/*cheek left */
+#path5817{
+	stroke: #FD423780 !important;	
+}
+
+/*ear left inner*/
+#path5821{
+	stroke: #FD423780 !important;	
+}
+
+/*ear left outer a*/
+#path3454{
+	fill: #FDFAF8F0 !important;
+	stroke: #FD423780 !important;	
+}
+
+/*ear left outer b*/
+#path5823{
+	fill: #FDFAF8F0 !important;
+	stroke: #FD423780 !important;
+}
+
+/*ear right inner*/
+#path5825{
+	stroke: #FD423780 !important;
+	fill: #FD423710 !important;	
+}
+
+/*ear right detail*/
+#path5827{
+	stroke: #FD423780 !important;
+	fill: #FD423710 !important;	
+}
+
+
+/*shirt*/
+#path5950 {
+	fill: #58D7E540 !important;
+	stroke: #58D7E540 !important;
+
 }
 
 
@@ -101,4 +322,11 @@ a, a:link, a:visited {
  
 }
 
+#skills {
+	width: 100%;
+}
 
+
+.stuff{
+	line-height: 1.7em;
+}
