@@ -415,7 +415,9 @@ a, a:link, a:visited {
 	/*width: 25%;*/
 	min-height: 33%;
 	min-width: 25%;
+	max-width: 30%;
 	border: 1px dotted lightgrey;
 	/*height: 43%;*/
-	overflow: auto;
+	overflow: hidden;
+	vertical-align: top;
 }
