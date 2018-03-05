@@ -69,15 +69,19 @@ body{
 }
 
 #name {
-	margin-left: 33%;
-	margin-right: 28%;
+	/*margin-left: 33%;*/
+	/*margin-right: 28%;*/
 	margin-top: 28%;
+	text-align: center;
+	vertical-align: middle;
 	color: grey;
 }
 
 #clock {
-	margin-left: 33%;
-	margin-right: 28%;
+/*	margin-left: 33%;
+	margin-right: 28%;*/
+	text-align: center;
+	vertical-align: middle;
 	color: grey;
 }
 
@@ -133,6 +137,7 @@ tr > *:nth-child(3) {
 
 /*hair*/
 #path5803{
+	animation: hideshow 3s linear infinite;
 	fill: #D2F1F3F0 !important;
 	stroke: #D2F1F3F0 !important;
 }
@@ -151,12 +156,14 @@ tr > *:nth-child(3) {
 }
 /*face*/
 #path3456{
+	animation: shuffle 8s linear infinite;
 	stroke: #FD423780 !important;
 	fill: #FDFAF8F0 !important;
 }
 
 /*neck*/
 #path3452{
+	animation: shuffle 5s linear infinite;
 	stroke: #FD423780 !important;
 	fill: #FDFAF8F0 !important;
 
@@ -209,29 +216,35 @@ tr > *:nth-child(3) {
 
 /*nose tip*/
 #path5739{
+	animation: shuffle 8s linear infinite;
 	fill: #FD423710 !important;
 	stroke: #FD423780 !important;
 }
 /*nose ridge*/
 #path5848{
+	animation: shuffle 8s linear infinite;
 	stroke: #FD423780 !important;
 }
 /*nose hole right*/
 #path5956{
+	animation: shuffle 8s linear infinite;
 	fill: #58D7E540 !important;
 	stroke: #58D7E540 !important;
 }
 /*nose hole left*/
 #path5958{
+	animation: shuffle 8s linear infinite;
 	fill: #58D7E540 !important;
 	stroke: #58D7E540 !important;	
 }
 /*nostril right*/
 #path5844 {
+	animation: shuffle 8s linear infinite;
 	stroke: #FD423780 !important;
 }
 /*nostril left*/
 #path5842 {
+	animation: shuffle 8s linear infinite;
 	stroke: #FD423780 !important;
 }
 /*mouth hole*/
@@ -244,8 +257,9 @@ tr > *:nth-child(3) {
 	fill: #FBFAF9F0 !important;
 	stroke: #FD423780 !important;
 }
-/*lips*/
+/*mouth lips*/
 #path5792{
+	animation: shuffle 3s linear infinite;
 	fill: #FD423710 !important;
 	stroke: #FD423780 !important;
 }
@@ -267,17 +281,20 @@ tr > *:nth-child(3) {
 
 /*ear left inner*/
 #path5821{
+	animation: hideshow 10s linear infinite;
 	stroke: #FD423780 !important;	
 }
 
 /*ear left outer a*/
 #path3454{
+	animation: hideshow 10s linear infinite;
 	fill: #FDFAF8F0 !important;
 	stroke: #FD423780 !important;	
 }
 
 /*ear left outer b*/
 #path5823{
+	animation: hideshow 10s linear infinite;
 	fill: #FDFAF8F0 !important;
 	stroke: #FD423780 !important;
 }
@@ -297,9 +314,15 @@ tr > *:nth-child(3) {
 
 /*shirt*/
 #path5950 {
+	animation: shuffle 8s linear infinite;
 	fill: #58D7E540 !important;
 	stroke: #58D7E540 !important;
 
+}
+
+#path5950:hover{
+	/*fill: pink !important;*/
+	/*cursor: help !important;*/
 }
 
 
@@ -308,6 +331,14 @@ tr > *:nth-child(3) {
   0% { transform: translate(0px, 0px); }
   33% { transform: translate(0px, -1px); }
   66% {transform: translate(0px, 1px);}
+  100% { transform: translate(0px, 0px); }
+} 
+
+@keyframes shuffle {
+
+  0% { transform: translate(0px, 0px); }
+  33% { transform: translate(-1px, 0px); }
+  66% {transform: translate(1px, 0px);}
   100% { transform: translate(0px, 0px); }
 
 } 
@@ -324,9 +355,67 @@ a, a:link, a:visited {
 
 #skills {
 	width: 100%;
+	display: inline-table;
+}
+#skills tr {
+	line-height: 15%;
 }
 
 
 .stuff{
 	line-height: 1.7em;
+}
+
+.index-card-container{
+	position: relative;
+	width: 100%;
+}
+
+.index-card-container:before{
+	content: "";
+	display: block;
+	padding-top: 60%; 	/* initial ratio of 1:1*/
+}
+
+.index-card { 
+	border: 1px dotted lightgrey;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+}
+.index-card-content{
+	position: relative;
+	height: 100%;
+	font-size: 100%;
+}
+.index-card-header{
+	/*position: relative;*/
+	background-color: #FBFAF9F0;
+	background-image: 
+		linear-gradient(0deg, transparent 64%, #FCA9A4F0 67%, #FCA9A4F0 67%, transparent 64%);
+		background-size: 100% 200%;
+	height:25%;
+	font-size: 1vw
+}
+.index-card-body{
+	/*position: relative;*/
+	background-color: #FBFAF9F0;
+	background-image: 
+		linear-gradient(#58D7E5F0 2%, transparent 15%);
+		background-size: 100% 11.5%;
+	height:75%;
+	font-size: .5vw;
+	line-height: .70em;
+}
+.tiny-table{
+	display: inline-block;
+	/*width: 25%;*/
+	min-height: 33%;
+	min-width: 25%;
+	border: 1px dotted lightgrey;
+	/*height: 43%;*/
+	overflow: auto;
 }

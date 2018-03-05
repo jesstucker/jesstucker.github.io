@@ -1,3 +1,4 @@
+
 // Making a clock
 var date = new Date();
 var monthday = date.getDate();
@@ -16,7 +17,7 @@ document.getElementById("clock").innerHTML = clock;
 // }
 
 
-var row = document.getElementById("skills").getElementsByTagName("TR")
+// var row = document.getElementById("skills").getElementsByTagName("TR")
 
 
 function ToggleSort(rowIndex) {
