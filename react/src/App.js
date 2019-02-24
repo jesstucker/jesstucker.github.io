@@ -2,7 +2,7 @@ import React, { Component, Suspense } from 'react';
 import './App.css';
 import SelfPortrait from './images/SelfPortait'
 import AllisonTattoo from './images/AllisonTattoo'
-import Resume from './Resume'
+// import Resume from './Resume'
 import {createDate} from './util'
 
 
@@ -14,27 +14,42 @@ class App extends Component {
   <div id="outer-wrapper">
     <div id="inner-wrapper">
       <div id="heading">
-        <div id="sig-wrap">
-          <div id="signature">
-            <div id="name">
-              Jess Tucker<br />
-              Web Developer<br />
+      <div className="header-left-margin">
+        <SelfPortrait />
+      </div>
+      <div className="header-center">
+        
+      </div>
+      <div className="header-right-margin">
+
+            <div id="signature">
+                <div>Jess Tucker</div>
+                <div>Web Developer</div>
+                <div>{createDate()}</div>
             </div>
-            <div id="clock">{createDate()}</div><br />
 
-
-          </div>
-        </div>
+      </div>
+        
       </div>
       <div id="body">
         <div id="body-content-wrapper">
-          <div id="body-content">
-            <div className="pusher"></div>
-            <div className="stuff">
+          <div id="paper">
+          <div className="body-left-margin">
+            {/* <div className="diagonal-text">
+              art
+            </div>
+            <div className="diagonal-text">
+              cs
+            </div>
+            <div className="diagonal-text">
+              cv
+            </div> */}
+          </div>
+            <div className="stuff body">
               {/* <div id="selfportrait">
                 <SelfPortrait />  
               </div> */}
-
+              
               <div className="allison-tattoo-container">
                 <AllisonTattoo />
                 <AllisonTattoo className={'svg-mirror'}/>
@@ -90,11 +105,6 @@ class App extends Component {
                 <Resume />
               </Suspense> */}
              </div>
-             <div className="pusher"></div>
-             <div className="pusher"></div>
-             <div className="pusher"></div>
-             <div className="pusher"></div>
-             <div className="pusher"></div>
         </div>
       </div>
     </div>

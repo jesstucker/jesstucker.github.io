@@ -4,9 +4,9 @@ const AllisonTattoo = (props) => {
   return(
     <div className={`${props.className || ''} allison-tattoo`} >
         <svg
-            // width="55" 
-            // height="380" 
-            viewBox="0 0 169 380"
+            // width="168.85" 
+            // height="379.56" 
+            viewBox="0 0 168.85 379.56"
         >
             <g id="Layer_1" data-name="Layer 1">
                 <path className="allison-tattoo-1" d="M106.1,59.8" transform="translate(0 0)" />
