@@ -69,7 +69,7 @@ body{
 		linear-gradient(90deg, transparent 16.5%, rgba(253, 65, 55, 0.281) 16.85%, rgba(253, 65, 55, 0.192) 16.5%, transparent 16.85%),
 		linear-gradient(90deg, transparent 82.65%, #FD42371A 83.1%, #FD42371A 82.65%, transparent 83.1%),
 		linear-gradient(rgba(88, 215, 229, 0.103) .15em, transparent .15em);
-		background-size: 100% 2%;
+		background-size: 100% 3%;
 
 }
 
@@ -84,7 +84,16 @@ body{
 
 .body-left-margin{
 	grid-area: body-left-margin;
-	margin-top: 2em;
+	margin-top: 1.5vw;
+}
+.enumerated {
+	line-height: 1.437em;
+	margin: 0.03em 0.3em 0.03em 0;
+	text-align: right;
+}
+
+.line-spaced {
+	font-size: 1.38vw;
 }
 .diagonal-text {
 	transform: rotate(315deg);
@@ -372,9 +381,9 @@ a, a:link, a:visited {
 }
 
 
-.stuff{
+/* .stuff{
 	line-height: 1.7em;
-}
+} */
 
 .index-card-container{
 	position: relative;

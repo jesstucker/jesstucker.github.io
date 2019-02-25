@@ -1,16 +1,13 @@
-import React, { Component, Suspense } from 'react';
-import './App.css';
+import React, { Component} from 'react';
 import SelfPortrait from './images/SelfPortait'
 import AllisonTattoo from './images/AllisonTattoo'
-// import Resume from './Resume'
 import {createDate} from './util'
 
+import { Route, NavLink, Link, BrowserRouter as Router } from 'react-router-dom'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div id="bodycenter">
+
+const Paper = (props) => {return(
+  <div id="bodycenter">
   <div id="outer-wrapper">
     <div id="inner-wrapper">
       <div id="heading">
@@ -35,20 +32,27 @@ class App extends Component {
         <div id="body-content-wrapper">
           <div id="paper">
           <div className="body-left-margin">
-            {/* <div className="diagonal-text">
-              art
-            </div>
-            <div className="diagonal-text">
-              cs
-            </div>
-            <div className="diagonal-text">
-              cv
-            </div> */}
+            
+              <div>
+                
+              
+                <div className="diagonal-text line-spaced">
+                  <Link to="/resume">cv</Link>
+                </div>
+                <div className="diagonal-text line-spaced">
+                  art
+                </div>
+                <div className="diagonal-text line-spaced">
+                  <a href="https://github.com/jesstucker">code</a>
+                </div>
+                <div className="diagonal-text line-spaced">
+                  <a href="https://soundcloud.com/jeff-ff">techno</a>
+                </div>
+                </div>
+            
+            {/* {range(33).map(num => <div className={'enumerated'}>{num}.</div>)} */}
           </div>
             <div className="stuff body">
-              {/* <div id="selfportrait">
-                <SelfPortrait />  
-              </div> */}
               
               <div className="allison-tattoo-container">
                 <AllisonTattoo />
@@ -111,9 +115,6 @@ class App extends Component {
   </div>
 </div>
       </div>
-      </div>
-    );
-  }
-}
+)}
 
-export default App;
+export default Paper
