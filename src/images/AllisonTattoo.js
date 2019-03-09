@@ -85,7 +85,7 @@ const AllisonTattoo = (props) => {
                 <path className="allison-tattoo-2" d="M94.49,175.62S72.72,189.71,74,207.76a21.47,21.47,0,0,0,.64,4" transform="translate(0 0)" />
                 <path className="allison-tattoo-2" d="M74,207.76c0,8.37-.2,8.19-1.32,13.4,0,0-4,13.58-9.3,32.7s-2.51,14.68-11.44,30.29" transform="translate(0 0)" />
             </g>
-            <g id="Layer_2" data-name="Layer 2">
+            <g id="Layer_2" data-name="Layer 2" className="lady-hand">
                 <path className="allison-tattoo-1" d="M160.82,17.33a23.52,23.52,0,0,1,2.38-3c.4-.18,2.9-3.85,2.44-4.6a16,16,0,0,0-2.07-2.95c-.41-.2-.85-.18-1.21-.66s-2-.51-2-.51L158.67,5a1.07,1.07,0,0,0-.42,1.76,4.5,4.5,0,0,0,2.61,1.45l.4.09a7.56,7.56,0,0,0,1,2.31c.09.22-.26,0-.26,0s-.11,0-.55.48" transform="translate(0 0)" />
                 <path className="allison-tattoo-1" d="M164.59,12.56a36,36,0,0,1,2.46-2.71c.51-.37,1.14-4.86,1.56-5.76a3.63,3.63,0,0,0-.33-1.72,12,12,0,0,1,0-2c.09-.57-1.12-.15-1.3.05s-.57.11-.88,2.33-.42,1.5-.13,1.74c-.24-.2-1.32,2-1.5,3.28" transform="translate(0 0)" />
                 <path className="allison-tattoo-1" d="M168.28,2.37l.42-1a.48.48,0,0,0-.48-.66" transform="translate(0 0)" />
