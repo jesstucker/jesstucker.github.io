@@ -24,6 +24,7 @@ const IndexPage = () => (
 
                   <div id="signature">
                       <div>Jess Tucker</div>
+<div>The Miles Davis of Solitaire </div><div>The Kurt Cobain of Web Development</div>
                       <div>Web Developer</div>
                       <div>{createDate()}</div>
                   </div>
