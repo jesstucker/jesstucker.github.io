@@ -1,6 +1,5 @@
 
         <svg
-
             viewBox="0 0 168.85 379.56"
         >
             <g id="Layer_1" data-name="Layer 1">

@@ -1,4 +1,4 @@
-function createDate(){
+export function createDate(){
     const date = new Date()
     const monthday = date.getDate()
     const month = date.getMonth() + 1
@@ -6,5 +6,3 @@ function createDate(){
     const clock = month + '/' + monthday + '/' + year.toString().slice(2, 4)
     return clock
   }
-  
-  export default createDate

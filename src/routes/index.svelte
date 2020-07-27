@@ -1,12 +1,93 @@
 <script>
+	import { createDate } from '../utils/createDate.js'
 	import SelfPortrait from '../components/SelfPortrait.svelte'
 	import AllisonTattoo from '../components/AllisonTattoo.svelte'
+	import Notecard from '../components/Notecard.svelte'
+	import MusicCard from '../components/MusicCard.svelte'
+	const quips = [
+		"The Miles Davis of Solitaire",
+		"The Kurt Cobain of Web Development",
+		"The Ian Curtis of Rompler Collecting"
+	]
+
+	const funny_people = [
+		"Kurt Cobain",
+		"Miles Davis",
+		"James Dean",
+		"River Phoenix",
+		// "Joaquin Phoenix",
+		"Brad Renfro",
+		"Tupac",
+		"Sid Vicious",
+		"Ian Curtis",
+		"Elliot Smith"
+	]
+
+	const things_i_like_to_do = [
+		"Solitaire",
+		"Web Development",
+		"Lunchtime Walks",
+		"Spending Time with His Girlfriend",
+		"Talking on the Phone",
+		"Home Improvement",
+		"College Ruled Notebook Paper Drawing",
+		"90s Synthesizer Collecting",
+		"Rompler Collecting",
+		"Amazon Prime Shopping",
+		"Armchair TV Show Analysis",
+		"Doing it Tomorrow",
+	]
+
+	const rand = (list) => list[~~(Math.random() * list.length)]
 </script>
 
 <svelte:head>
 	<title>Jess Tucker - Full Stack Web Developer</title>
 </svelte:head>
+<div style="display:flex;">
+	<Notecard>
+		<h3 style="margin:0;padding:0;line-height:1;" slot="title">Grocery:</h3>
+		<div slot="body">
+			<div style="display:flex;">
+				<ul >
+					<li>Apothic Winemaker's Blend</li>
+					<li>Mozarella, full fat</li>
+					<li>Parmesean</li>
+					<li>Bowtie Pasta</li>
 
+				</ul>
+				<ul aria-label="Produce">
+					<li>Kale babies</li>
+					<li>Garlic</li>
+					<li>Green onions</li>
+					<li>Tomatoes</li>
+					<li>White onions</li>
+					
+					<li>Cilantro</li>
+					
+					<li>Parsley, flat</li>
+					
+					<li>Lemon</li>
+			
+					<li>Nappa Cabbage</li>
+					<li>Daikon radish</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul aria-label="Spices">
+					<li>Coriander</li>
+					<li>MSG</li>
+					<li>Korean Chile Flakes</li>
+					<li>Peppercorns</li>
+					<li>Lime Kaffir Leaves</li>
+				</ul>
+			</div>
+		</div>
+	</Notecard>
+	<MusicCard />
+</div>
 <div id="bodycenter">
         <div id="outer-wrapper">
           <div id="inner-wrapper">
@@ -15,15 +96,14 @@
               <SelfPortrait />
             </div>
             <div class="header-center">
+				 <h1>Jess Tucker: "{`The ${rand(funny_people)} of ${rand(things_i_like_to_do)}`}<sub style="font-size:0.35em"><a href="fu">1</a></sub>" </h1>
             </div>
             <div class="header-right-margin">
 
                   <div id="signature">
                       <div>Jess Tucker</div>
-						<div>The Miles Davis of Solitaire </div>
-						<div>The Kurt Cobain of Web Development</div>
                       <div>Web Developer</div>
-                      <!-- <div>{createDate()}</div> -->
+                      <div>{createDate()}</div>
                   </div>
 
             </div>
@@ -54,44 +134,44 @@
                 </div>
                   <div class="stuff body">
                     <div class="allison-tattoo-container">
-                      <AllisonTattoo class={'svg-mirror'}/>
-                      <AllisonTattoo />   
+                      <!-- <AllisonTattoo class={'svg-mirror'}/> -->
+                      <!-- <AllisonTattoo />   
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
-                      <AllisonTattoo class={'svg-mirror'}/>   
+                      <AllisonTattoo class={'svg-mirror'}/>    -->
                       <AllisonTattoo />   
                     </div>
                     <div class="allison-tattoo-container">
-                      <AllisonTattoo />
-                      <AllisonTattoo class={'svg-mirror'}/>
+                      <!-- <AllisonTattoo /> -->
+                      <!-- <AllisonTattoo class={'svg-mirror'}/>
                       <AllisonTattoo />   
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
-                      <AllisonTattoo class={'svg-mirror'}/>      
+                      <AllisonTattoo class={'svg-mirror'}/>       -->
                     </div>
                     <div class="allison-tattoo-container">
-                      <AllisonTattoo class={'svg-mirror'}/>
-                      <AllisonTattoo />   
+                      <!-- <AllisonTattoo class={'svg-mirror'}/> -->
+                      <!-- <AllisonTattoo />   
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
                       <AllisonTattoo class={'svg-mirror'}/>  
-                      <AllisonTattoo />    
+                      <AllisonTattoo />     -->
                     </div>
                     <div class="allison-tattoo-container">
-                      <AllisonTattoo />
-                      <AllisonTattoo class={'svg-mirror'}/>
+                      <!-- <AllisonTattoo /> -->
+                      <!-- <AllisonTattoo class={'svg-mirror'}/>
                       <AllisonTattoo />   
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
                       <AllisonTattoo class={'svg-mirror'}/>   
                       <AllisonTattoo />  
-                      <AllisonTattoo class={'svg-mirror'}/>      
+                      <AllisonTattoo class={'svg-mirror'}/>       -->
                     </div>
 
                   </div>
@@ -103,10 +183,13 @@
     </div>
 
 <style>
-	@font-face {
-	font-family: 'ComputerModern';
-	src: url('./fonts/ComputerModern/Serif/cmunrm.ttf');
+ul:before{
+    content:attr(aria-label);
+    /* font-size:120%; */
+    font-weight:bold;
+	border-bottom: 1px solid black;
 }
+
 body{
 	font-family: 'ComputerModern';
 }
@@ -174,7 +257,7 @@ body{
 		linear-gradient(90deg, transparent 16.5%, rgba(253, 65, 55, 0.281) 16.85%, rgba(253, 65, 55, 0.192) 16.5%, transparent 16.85%),
 		linear-gradient(90deg, transparent 82.65%, #FD42371A 83.1%, #FD42371A 82.65%, transparent 83.1%),
 		linear-gradient(rgba(88, 215, 229, 0.103) .15em, transparent .15em);
-		background-size: 100% 3%;
+		background-size: 100% 1.5em;
 
 }
 

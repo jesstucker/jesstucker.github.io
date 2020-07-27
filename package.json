@@ -1,9 +1,9 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "iamdumb",
+  "description": "iamdumb",
   "version": "0.0.1",
   "scripts": {
-    "dev": "sapper dev",
+    "dev": "sapper dev --no-hot",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy && rsync -a -v ./__sapper__/export/* ./",
     "start": "node __sapper__/build",
