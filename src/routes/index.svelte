@@ -33,9 +33,11 @@
 		"College Ruled Notebook Paper Drawing",
 		"90s Synthesizer Collecting",
 		"Rompler Collecting",
-		"Amazon Prime Shopping",
-		"Armchair TV Show Analysis",
+		// "Amazon Prime Shopping",
+		"Armchair TV Show Criticism",
 		"Doing it Tomorrow",
+		"Drinking Cheap Wine",
+		"Sitting in Front of the Space Heater",
 	]
 
 	const rand = (list) => list[~~(Math.random() * list.length)]
@@ -50,14 +52,14 @@
 		<div slot="body">
 			<div style="display:flex;">
 				<ul >
-					<li>Apothic Winemaker's Blend</li>
-					<li>Mozarella, full fat</li>
+					<li>Apothic Red Blend</li>
+					<!-- <li>Mozarella, full fat</li> -->
 					<li>Parmesean</li>
 					<li>Bowtie Pasta</li>
 
 				</ul>
 				<ul aria-label="Produce">
-					<li>Kale babies</li>
+					<li>Kale</li>
 					<li>Garlic</li>
 					<li>Green onions</li>
 					<li>Tomatoes</li>
