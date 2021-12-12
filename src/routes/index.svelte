@@ -20,7 +20,9 @@
 		"Tupac",
 		"Sid Vicious",
 		"Ian Curtis",
-		"Elliot Smith"
+		"Elliot Smith",
+		"Jonathan Brandis",
+		
 	]
 
 	const things_i_like_to_do = [
