@@ -25,16 +25,21 @@
 		play,
 		pause,
 		next,
+		currentTime=0,
 		playSelected;
-
+		
 
 	onMount(async () => {
 		// let boo = new Audio('./techno/;3-317235075.mp3')
 		// boo.play()
 		// console.log(boo.src)
-		tracks = await fetch('./techno/musicList.json')
-					.then(resp => resp.json())
-					.then(data => tracks = data.map(t => t.filename))
+		// tracks = await fetch('./techno/musicList.json')
+		// 			.then(resp => resp.json())
+		// 			.then(data => tracks = data.map(t => t.filename))
+		await fetch('https://api.github.com/repos/jesstucker/jesstucker.github.io/contents/techno')
+				.then(res => res.json())
+				.then(data => tracks = data.map(t => t))
+
 		current_song = 0;
 		player = new Audio();
 		player.src = tracks[current_song];
@@ -75,8 +80,8 @@
 <!-- <button on:click={play}>play</button> -->
 <ul>
 	{#each tracks as track}
-		<li on:click={() => playSelected(track)}>
-			{track}
+		<li on:click={() => playSelected(track.path)}>
+			{track.name}
     	</li>
 	{/each}
 </ul>
