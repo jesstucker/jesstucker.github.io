@@ -59,7 +59,7 @@
 		}
 		playSelected = function(song){
 			player.pause();
-			player.src = `./techno/${song}`;
+			player.src = `${song}`;
 			console.log(player.src)
 			player.play();	
 		}
