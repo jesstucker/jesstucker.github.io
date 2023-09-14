@@ -1,4 +1,23 @@
-@import '@fontsource/fira-mono';
+@font-face {
+	font-family: 'ComputerModern';
+	src: url('./fonts/ComputerModern/Serif/cmunrm.ttf');
+}
+@font-face {
+	font-family: 'CMU Monospace';
+	src: url('./fonts/ComputerModern/TypewriterLight/cmunbtl.ttf');
+}
+@font-face {
+	font-family: 'LeonSans';
+	src: url('./fonts/LeonSans/LeonSans-Medium.otf');
+}
+body {
+	margin: 0;
+	font-family: "Computer Modern", "Times New Roman", Times, serif;
+	font-size: 12px;
+	/* line-height: 1.5; */
+	/* color: #333; */
+	/* background: rgba(255, 251, 246, 0.35); */
+}
 
 :root {
 	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
