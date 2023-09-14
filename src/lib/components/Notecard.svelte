@@ -46,7 +46,7 @@
         position: relative;
         height: 100%;
         width: 100%;
-        overflow: hidden;
+        overflow: scroll;
         line-height: 0.25in;
         padding: 0.0625in 0.125in 0;
         box-sizing: border-box;
