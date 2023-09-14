@@ -1,5 +1,6 @@
 <script>
-	export const prerender = true
+	export const prerender = true;
+	export const trailingSlash = 'always';
 	import Header from './Header.svelte';
 	import './styles.css';
 </script>
