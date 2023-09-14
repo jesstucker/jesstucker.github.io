@@ -2,6 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
 const dev = process.argv.includes('dev');
+console.log('dev:', dev)
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,7 +12,7 @@ const config = {
 
 		}),
         paths: {
-            base: dev ? '' : process.env.BASE_PATH,
+            base: process.env.BASE_PATH,
         }
     }
 };
