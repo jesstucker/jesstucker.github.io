@@ -157,7 +157,5 @@
 
 
 <style>
-	#player-cont {
-		/* font-family: "CMU Monospace"; */
-	}		
+	
 </style>
