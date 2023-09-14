@@ -6,10 +6,10 @@
 
 <style>
     svg {
-        fill: pink;
+        fill: none;
     }
-    svg #shape {
-        stroke: red;
-        stroke-width: 5px;
+    svg path {
+        stroke: #555;
+        stroke-width: 2px;
     }
 </style>

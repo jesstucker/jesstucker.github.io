@@ -1,15 +1,21 @@
-<script>
+<script lang="ts">
 	// import { audioData } from './audioData.js';
-	
+	import { onMount } from 'svelte';
+
 	import TrackHeading from './TrackHeading.svelte';
 	import ProgressBarTime from './ProgressBarTime.svelte';
 	import Controls from './Controls.svelte';
 	import VolumeSlider from './VolumeSlider.svelte';
 	import PlayList from './PlayList.svelte';
-	import { onMount } from 'svelte';
+	import type { HTMLAudioElement } from './$types';
 
-	export let audioData;
-	let audioFile;
+	interface AudioData {
+		name: string;
+		url: string;
+	}
+
+	export let audioData: AudioData[] = [];
+	let audioFile:HTMLAudioElement;
 	let trackTitle = "loading...";
 	let trackIndex = 0;
 	let vol = 50;
@@ -20,7 +26,13 @@
 	let totalTrackTime = 0;
 	let isPlaying = false;
 
-	onMount(()=>loadTrack())
+	let track = {
+		src: '',
+		name: '',
+		duration: 0,
+	}
+
+	onMount( ()=> loadTrack() )
 	
 	const loadTrack = () => {
 		audioFile = new Audio(audioData[trackIndex].url);
@@ -46,7 +58,7 @@
 	
 	// Track Duration and Progress Bar
 	
-	// $: console.log(totalTrackTime)
+	$: console.log(totalTrackTime)
 
 	
 
@@ -98,7 +110,7 @@
 			toggleTimeRunning()
 			audioFile.pause();
 			isPlaying = false;
-		}	 	
+		}
 	}
 	
 	const rewindAudio = () => audioFile.currentTime -= 10;
@@ -129,10 +141,8 @@
 
 <main>
 	<section id="player-cont">
-		
 		<TrackHeading {trackTitle} />
 
-		
 		<ProgressBarTime {currTimeDisplay} {totalTimeDisplay} {progress} />
 		
 		<Controls {isPlaying} 
@@ -148,13 +158,6 @@
 
 <style>
 	#player-cont {
-		/* width: 250px; */
-		/* height: 165px; */
-		/* padding: 0.125in; */
-		/* box-shadow: 0 0 5px black; */
-		/* background: #222; */
-		/* color: #bbb; */
-		font-family: "CMU Monospace";
-		/* border-radius: 5px 5px 0 0; */
+		/* font-family: "CMU Monospace"; */
 	}		
 </style>

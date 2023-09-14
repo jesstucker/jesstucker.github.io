@@ -21,7 +21,11 @@
 						name: songName,
 						url: `https://jt-music.s3.amazonaws.com/${songName}`
 					}
-				})
+				}).toSorted((a, b) => a.name.localeCompare(b.name, undefined, {
+							numeric: true,
+							sensitivity: 'base'
+						})
+				)
 			})
 	})
 
