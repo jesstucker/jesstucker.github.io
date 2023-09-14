@@ -1,14 +1,14 @@
 @font-face {
 	font-family: 'ComputerModern';
-	src: url('./fonts/ComputerModern/Serif/cmunrm.ttf');
+	src: url('$lib/fonts/ComputerModern/Serif/cmunrm.ttf');
 }
 @font-face {
 	font-family: 'CMU Monospace';
-	src: url('./fonts/ComputerModern/TypewriterLight/cmunbtl.ttf');
+	src: url('$lib/fonts/ComputerModern/TypewriterLight/cmunbtl.ttf');
 }
 @font-face {
 	font-family: 'LeonSans';
-	src: url('./fonts/LeonSans/LeonSans-Medium.otf');
+	src: url('$lib/fonts/LeonSans/LeonSans-Medium.otf');
 }
 body {
 	margin: 0;
