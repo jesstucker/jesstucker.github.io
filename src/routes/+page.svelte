@@ -40,9 +40,14 @@
 			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem officiis velit incidunt, dolorem ab perferendis repudiandae tempora aut minima quidem, quibusdam mollitia praesentium fugiat nobis itaque. Doloribus natus aliquid libero. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sunt non, voluptates necessitatibus sint exercitationem nesciunt et explicabo sit, dolores delectus praesentium labore! Unde a in praesentium necessitatibus. Ad, voluptates. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolores vero voluptates impedit quisquam nostrum reiciendis molestiae, odit provident maxime repellat amet est minima nihil sequi ratione facere dicta ipsum!
 		</div>
 	</Notecard>
-	{#await fetchingSongs then songs}
-		<AudioPlayer audioData={songs}/>
-	{/await}
+	<Notecard>
+		<div slot="title">Music</div>
+		<div slot="body">
+			{#await fetchingSongs then songs}
+				<AudioPlayer audioData={songs}/>
+			{/await}
+		</div>
+	</Notecard>
 	
 	<Notecard>
 		<div slot="title">Songs</div>

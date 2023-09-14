@@ -50,6 +50,11 @@
         line-height: 0.25in;
         padding: 0.0625in 0.125in 0;
         box-sizing: border-box;
+        z-index: 1;
+    }
+
+    .body::-webkit-scrollbar {
+        display: none;
     }
     
     .body::before {
@@ -61,5 +66,6 @@
         background-size: 100% 0.25in;
         height: 100%;
         width: 100%;
+        z-index: -1;
     }
 </style>

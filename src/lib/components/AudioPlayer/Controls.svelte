@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import Arrow from './Arrow.svelte';
 	
 	let dispatch = createEventDispatcher();
 	
@@ -22,6 +23,7 @@
 	<button id="play" on:click={() => dispatch('playPause')}>
 		<img src={isPlaying ? icons.pause : icons.play} 
 				 alt="play"/>
+		<Arrow />
 	</button>
 	<button id="forward" on:click={() => dispatch('forward')}>
 		<img src={icons.fwd} alt="forward"/>

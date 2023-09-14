@@ -20,20 +20,7 @@
 	let totalTrackTime = 0;
 	let isPlaying = false;
 
-	onMount(()=>{
-
-	
-
-		// Get Audio track
-		
-		// $: console.log(trackIndex)
-		audioFile = new Audio(audioData[trackIndex].url);
-		trackTitle = audioData[trackIndex].name;
-		audioFile.onloadedmetadata = () => {
-			totalTrackTime = audioFile.duration;
-			updateTime();
-		}
-	})
+	onMount(()=>loadTrack())
 	
 	const loadTrack = () => {
 		audioFile = new Audio(audioData[trackIndex].url);
@@ -92,7 +79,7 @@
 		if (audioFile.ended) {
 			isPlaying = false;
 			clearInterval(trackTimer);
-			console.log(`Ended = ${audioFile.ended}`);	
+			// console.log(`Ended = ${audioFile.ended}`);	
 		} else {
 			trackTimer = setInterval(updateTime, 100);
 		}
@@ -160,24 +147,14 @@
 
 
 <style>
-	main {
-		width: 100vw;
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-/* 		justify-content: center; */
-		padding: 20px 0 0 0;
-		background-color: #ddd;
-	}
-
 	#player-cont {
-		width: 250px;
-		height: 165px;
-		padding: .7rem 1.5rem 0;
-		box-shadow: 0 0 5px black;
-		background: #222;
-		color: #bbb;
-		border-radius: 5px 5px 0 0;
+		/* width: 250px; */
+		/* height: 165px; */
+		/* padding: 0.125in; */
+		/* box-shadow: 0 0 5px black; */
+		/* background: #222; */
+		/* color: #bbb; */
+		font-family: "CMU Monospace";
+		/* border-radius: 5px 5px 0 0; */
 	}		
 </style>

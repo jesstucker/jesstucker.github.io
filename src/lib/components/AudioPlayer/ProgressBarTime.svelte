@@ -28,13 +28,14 @@
 		margin: .5rem 0 .5rem;
 		display: flex;
 		align-items: center;
-		border: 1px solid #888;
+		/* border: 1px solid #888; */
 		cursor: pointer;
 	}
 
 	#bar {
 		width: 0%;
 		height: 10px;
-		background-color: goldenrod;
+		/* background-color: goldenrod; */
+		background: linear-gradient(to left, #FBF71955, #FBF719);
 	}
 </style>
