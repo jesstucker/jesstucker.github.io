@@ -37,11 +37,10 @@
 	onMount( ()=> loadTrack() )
 	
 	const loadTrack = () => {
+		console.log('test')
 		audioFile = new Audio(audioData[trackIndex].url);
 		audioFile.ontimeupdate = () => currTimeDisplay = formatTimer(audioFile.currentTime);
 		
-
-
 		audioFile.onloadedmetadata = (e) => {
 			totalTrackTime = audioFile.duration;
 			totalTimeDisplay = formatTimer(totalTrackTime);
