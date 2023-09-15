@@ -1,135 +1,84 @@
 <script lang="ts">
-	// import { audioData } from './audioData.js';
 	import { onMount } from 'svelte';
 
-	import TrackHeading from './TrackHeading.svelte';
-	import ProgressBarTime from './ProgressBarTime.svelte';
-	import Controls from './Controls.svelte';
-	import VolumeSlider from './VolumeSlider.svelte';
 	import PlayList from './PlayList.svelte';
 	import type { HTMLAudioElement } from './$types';
-	import { parse } from 'svelte/compiler';
+	import { track, playing, togglePlay } from '$lib/stores'
 
 	interface AudioData {
 		name: string;
 		url: string;
 	}
 
-	export let audioData:AudioData[] = [];
-	let audioFile:HTMLAudioElement;
-	let trackTitle = "loading...";
 	let trackIndex = 0;
-	let vol = 50;
-	let totalTimeDisplay = "loading...";
-	let currTimeDisplay = "00:00";
-	let progress = 0;
-	// let trackTimer = 0;
 	let totalTrackTime = 0;
-	let playing = false;
-	let timer = 0;
 
-	// let playing = {
-	// 	src: '',
-	// 	name: '',
-	// 	duration: 0,
-	// }
+	export let audioData:AudioData[] = [];
 
-	onMount( ()=> loadTrack() )
+	onMount( () => loadTrack() )
 	
 	const loadTrack = () => {
-		console.log('test')
-		audioFile = new Audio(audioData[trackIndex].url);
-		audioFile.ontimeupdate = () => currTimeDisplay = formatTimer(audioFile.currentTime);
-		
-		audioFile.onloadedmetadata = (e) => {
-			totalTrackTime = audioFile.duration;
-			totalTimeDisplay = formatTimer(totalTrackTime);
-			console.log(e)
-			updateTime();
-		}
-		trackTitle = audioData[trackIndex].name;
-	}
-	
-	const autoPlayNextTrack = () => {
-		if (trackIndex <= audioData.length-1) {
-			trackIndex += 1;
-			loadTrack();
-			audioFile.play();
-		} else {
-			trackIndex = 0;
-			loadTrack();
-			audioFile.play();
-		}
-	}
-	
-	
-	// Track Duration and Progress Bar
-	
-	// $: console.log(totalTrackTime)
+		$track.audioFile = new Audio(audioData[trackIndex].url);
+		$track.audioFile.ontimeupdate = () => {
+			$track.elapsed = formatTimer($track.audioFile.currentTime);
+			$track.progress = $track.audioFile.currentTime * (100 / totalTrackTime);
 
-	
+			if( $track.audioFile.ended ){
+				trackIndex = trackIndex + 1;
+				loadTrack();
+				$track.audioFile.play()
+			}
+		}
+
+		$track.audioFile.onloadedmetadata = (e:HTMLAudioElement) => {
+			totalTrackTime = $track.audioFile.duration;
+			$track.duration = formatTimer(totalTrackTime);
+		}
+
+		$track.title = audioData[trackIndex].name;
+	}
+
 	function formatTimer(sec: number) {
 		const min = Math.floor(sec / 60);
 		const seconds = Math.floor(sec - min * 60);
 		return `${String(min).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 	}
 
-	
-	function updateTime() {
-		progress = audioFile.currentTime * (100 / totalTrackTime);
-		
-		// currTimeDisplay = formatTimer(audioFile.currentTime);
-		// totalTimeDisplay = formatTimer(totalTrackTime);
-		
-		if (audioFile.ended) {
-			// toggleTimeRunning();
-			playing = false;
-			// clearInterval(trackTimer);
-		}
-	}
-	
-	// const toggleTimeRunning = () => trackTimer = setInterval(updateTime, 500);
-	
-
-	// Controls
-	// $: console.log(`playing = ${playing}`)
-
-	const togglePlay = () => {
-		playing 
-			? audioFile.pause()
-			: audioFile.play();
-		playing = !playing;
-		// toggleTimeRunning()
-	}
-
-	// const play = () => {
-	// 	audioFile.play();
-	// 	timer = setInterval(updateTime, 500);
-	// }
-
-	// const pause = () => {
-	// 	audioFile.pause();
-	// 	clearInterval(timer);
+	// const togglePlay = () => {
+	// 	$playing 
+	// 		? $track.audioFile.pause()
+	// 		: $track.audioFile.play();
+	// 	$playing = !$playing;
 	// }
 	
-	const rewindAudio = () => audioFile.currentTime -= 10;
-	const forwardAudio = () => audioFile.currentTime += 10;
-	const adjustVol = () => audioFile.volume = vol / 100; 
+	const rewindAudio = () => $track.audioFile.currentTime -= 10;
+	const forwardAudio = () => $track.audioFile.currentTime += 10;
+	// const adjustVol = () => $track.audioFile.volume = vol / 100; 
 	
 	
 	// Playlist
 	const handleTrack = (e) => {
-		if (!playing) {
-			trackIndex = Number(e.target.dataset.trackId);
+		if (!$playing) {
+			trackIndex = Number(e.detail.trackIndex);
 			loadTrack();
 			togglePlay(); // auto play
 		} else {
-			playing = false;
-			audioFile.pause();
-			trackIndex = Number(e.target.dataset.trackId);
+			$playing = false;
+			$track.audioFile.pause();
+			trackIndex = Number(e.detail.trackIndex);
 			loadTrack();
 			togglePlay(); // auto play
 		}
+		// $track.audioFile.srcObj = null;
+		// trackIndex = Number(e.detail.trackIndex)
+		// loadTrack();
+		// $track.audioFile.play();
+	}
+
+	const changeTrack = e => {
+		trackIndex = Number(e.target.dataset.trackId);
+		loadTrack();
+		$track.audioFile.play();
 	}
 
 </script>
@@ -137,19 +86,11 @@
 
 <main>
 	<section id="player-cont">
-		<TrackHeading {trackTitle} />
 
-		<ProgressBarTime {currTimeDisplay} {totalTimeDisplay} {progress} />
-		
-		<Controls pause={playing} 
-			on:rewind={rewindAudio}
-			on:playPause={togglePlay}
-			on:forward={forwardAudio} />
-		
-		<VolumeSlider bind:vol on:input={adjustVol} />	
+		<!-- <VolumeSlider bind:vol on:input={adjustVol} />	 -->
 	</section>
 
-	<PlayList on:click={handleTrack} {audioData} />
+	<PlayList on:trackChange={handleTrack} {trackIndex} {audioData} />
 </main>
 
 

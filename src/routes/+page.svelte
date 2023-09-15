@@ -1,10 +1,10 @@
 <script>
-	// import Counter from './Counter.svelte';
-	// import welcome from '$lib/images/svelte-welcome.webp';
-	// import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import Notecard from "$lib/components/Notecard.svelte";
 	import { onMount } from "svelte";
+	import { track, playing, togglePlay } from '$lib/stores'
+	import Notecard from "$lib/components/Notecard.svelte";
 	import AudioPlayer from "$lib/components/AudioPlayer/AudioPlayer.svelte";
+	import Controls from '$lib/components/AudioPlayer/Controls.svelte';
+	import ProgressBarTime from "$lib/components/AudioPlayer/ProgressBarTime.svelte";
 	
 	let fetchingSongs = Promise.resolve([])
 	$: console.log(fetchingSongs)
@@ -33,38 +33,33 @@
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Jess Tucker" />
+	<meta name="description" content="$$$$$$" />
 </svelte:head>
 
 <section>
-	Jess Tucker
-	<Notecard>
-		<div slot="title">Jess</div>
+	<!-- <Notecard>
+		<div slot="title">$$$</div>
 		<div slot="body">
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem officiis velit incidunt, dolorem ab perferendis repudiandae tempora aut minima quidem, quibusdam mollitia praesentium fugiat nobis itaque. Doloribus natus aliquid libero. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sunt non, voluptates necessitatibus sint exercitationem nesciunt et explicabo sit, dolores delectus praesentium labore! Unde a in praesentium necessitatibus. Ad, voluptates. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolores vero voluptates impedit quisquam nostrum reiciendis molestiae, odit provident maxime repellat amet est minima nihil sequi ratione facere dicta ipsum!
+			$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$ $$$$$$$$$$$$$$ $$$$$$$$$$$$$$$ $$$$$$$$$$$$$$ $$$$$$$$$$ $$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$$$$$$ $$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$ $$$$$$$$$$ $$$$$ $ $$$$$$$$$$$$$$$$ $$$$$$$$$$$ $$$$$ $$$$ $$$$ $$$$$$$$$ $$$$$$$ $$$$$$$$$ $$$$$$$ $$$$$$$$$$$$$$$ $$$$$$$$$$$ $$$$$$ $$$$$ $$$$ $ $$$ $$$$$$ $$$$$$$$$ $$$$$$$$$$$$$$$$ $$$$$$$$$$$$ $$$$$$$ $$$$$$$$
 		</div>
-	</Notecard>
+	</Notecard> -->
 	<Notecard>
-		<div slot="title">Music</div>
+		<div slot="title">
+			<div class="flex justify-between">
+				<div>{$track.elapsed} / {$track.duration}</div>
+
+				<Controls pause={$playing} on:playPause={togglePlay} />
+			</div>
+
+			<ProgressBarTime progress={$track.progress}/>
+		</div>
 		<div slot="body">
 			{#await fetchingSongs then songs}
 				<AudioPlayer audioData={songs}/>
 			{/await}
-		</div>
+		</div> 
 	</Notecard>
 	
-	<Notecard>
-		<div slot="title">Songs</div>
-		<div slot="body">
-			{#await fetchingSongs then songs}
-				{#each songs as song}
-					<div>
-						{song.name} - {song.url}
-					</div>
-				{/each}
-			{/await}
-		</div>
-	</Notecard>
 </section>
 
 <style>

@@ -1,10 +1,14 @@
 import adapter from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
+// import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 const dev = process.argv.includes('dev');
 
 export default {
-    preprocess: preprocess(),
+    preprocess: [
+        // preprocess(),
+        vitePreprocess(),
+    ],
     kit: {
         adapter: adapter({
             // default options are shown. On some platforms
@@ -17,7 +21,6 @@ export default {
         }),
         paths: {
             base: dev ? '' : process.env.BASE_PATH,
-                        // base: '/jesstucker.github.io',
         }
     }
 };

@@ -10,6 +10,11 @@
 	font-family: 'LeonSans';
 	src: url('/fonts/LeonSans/LeonSans-Medium.otf');
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
 	margin: 0;
 	font-family: "Computer Modern", "Times New Roman", Times, serif;

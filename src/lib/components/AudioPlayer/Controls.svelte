@@ -1,17 +1,8 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import Arrow from './Arrow.svelte';
-	
 	let dispatch = createEventDispatcher();
-	
-	const icons = {
-		play: "https://freesvg.org/img/media-playback-start.png",
-		pause: "https://freesvg.org/img/media-playback-pause.png",
-		rewind: "https://freesvg.org/img/media-skip-backward.png",
-		fwd: "https://freesvg.org/img/media-skip-forward.png"
-	}
-	
-  export let pause=false;
+
+	export let pause=false;
 	
 </script>
 
@@ -26,20 +17,30 @@
 		<Arrow />
 		
 	</button> -->
+
+	<!-- <button class="flex backward">
+		<div class="triangle"></div>
+		<div class="triangle"></div>
+	</button> -->
+
 	<button on:click={() => dispatch('playPause')}> 
-			<div class="triangle" class:pause></div>
+		<div class="triangle" class:pause></div>
 	</button>
 
 	<!-- <button id="forward" on:click={() => dispatch('forward')}>
 		<img src={icons.fwd} alt="forward"/>
 	</button> -->
-	<button class="flex">
+	<!-- <button class="flex">
 		<div class="triangle"></div>
 		<div class="triangle"></div>
-	</button>
+	</button> -->
 </div>
 
 <style>
+	/* .backward {
+		transform: rotate(180deg);
+	} */
+
 	#btn-cont {
 		display: flex;
 		justify-content: space-between;

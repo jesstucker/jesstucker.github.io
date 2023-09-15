@@ -24,7 +24,7 @@
         border: 1px dotted rgba(201, 197, 191, 0.404);
         display: flex;
         flex-direction: column;
-    }
+    } 
     .notecard:hover {
         box-shadow:  0.4em 0.6em 2.6em 2px #00000017;
     }
@@ -35,11 +35,13 @@
         /* border-image: linear-gradient(to bottom, transparent 16.5%, rgba(253, 65, 55, 0.251) 16.85% 100%); */
         /* border-image-slice: 1; */
         display: flex;
-        justify-content: center; 
+        justify-content: center;
+        padding: 0.125in 0.125in 0 0.125in;
     }
 
     .title {
         align-self: flex-end;
+        width: 100%;
     }
 
     .body {
@@ -56,7 +58,7 @@
     .body::-webkit-scrollbar {
         display: none;
     }
-    
+
     .body::before {
         position: absolute;
         content: "";
