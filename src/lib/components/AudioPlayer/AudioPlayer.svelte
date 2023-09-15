@@ -8,36 +8,43 @@
 	import VolumeSlider from './VolumeSlider.svelte';
 	import PlayList from './PlayList.svelte';
 	import type { HTMLAudioElement } from './$types';
+	import { parse } from 'svelte/compiler';
 
 	interface AudioData {
 		name: string;
 		url: string;
 	}
 
-	export let audioData: AudioData[] = [];
+	export let audioData:AudioData[] = [];
 	let audioFile:HTMLAudioElement;
 	let trackTitle = "loading...";
 	let trackIndex = 0;
 	let vol = 50;
 	let totalTimeDisplay = "loading...";
-	let currTimeDisplay = "0:00:00";
+	let currTimeDisplay = "00:00";
 	let progress = 0;
-	let trackTimer = 0;
+	// let trackTimer = 0;
 	let totalTrackTime = 0;
-	let isPlaying = false;
+	let playing = false;
 
-	let track = {
-		src: '',
-		name: '',
-		duration: 0,
-	}
+	// let playing = {
+	// 	src: '',
+	// 	name: '',
+	// 	duration: 0,
+	// }
 
 	onMount( ()=> loadTrack() )
 	
 	const loadTrack = () => {
 		audioFile = new Audio(audioData[trackIndex].url);
-		audioFile.onloadedmetadata = () => {
+		audioFile.ontimeupdate = e => {
+			console.log(e)
+			currTimeDisplay = parseSec(e.timeStamp);
+		}
+
+		audioFile.onloadedmetadata = (e) => {
 			totalTrackTime = audioFile.duration;
+			console.log(e)
 			updateTime();
 		}
 		trackTitle = audioData[trackIndex].name;
@@ -58,81 +65,61 @@
 	
 	// Track Duration and Progress Bar
 	
-	$: console.log(totalTrackTime)
+	// $: console.log(totalTrackTime)
 
 	
+	function parseSec(ms: number) {
+		const sec = ms / 1000;
+		const min = Math.floor(sec / 60);
+		const seconds = Math.floor(sec - min * 60);
+		return `${String(min).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+	}
 
 	
 	function updateTime() {
 		progress = audioFile.currentTime * (100 / totalTrackTime);
 		
-		let currHrs = Math.floor((audioFile.currentTime / 60) / 60);
-		let currMins = Math.floor(audioFile.currentTime / 60);
-		let currSecs = Math.floor(audioFile.currentTime - currMins * 60);
-		
-		let durHrs = Math.floor( (totalTrackTime / 60) / 60 );
-		let durMins = Math.floor( (totalTrackTime / 60) % 60 );
-		let durSecs =  Math.floor(totalTrackTime - (durHrs*60*60) - (durMins * 60));
-		
-		if(currSecs < 10) currSecs = `0${currSecs}`;
-		if(durSecs < 10) durSecs = `0${durSecs}`;
-		if(currMins < 10) currMins = `0${currMins}`;
-		if(durMins < 10) durMins = `0${durMins}`;
-		
-		currTimeDisplay = `${currHrs}:${currMins}:${currSecs}`;
-		totalTimeDisplay = `${durHrs}:${durMins}:${durSecs}`;
+		currTimeDisplay = parseSec(audioFile.currentTime);
+		totalTimeDisplay = parseSec(totalTrackTime);
 		
 		if (audioFile.ended) {
-			toggleTimeRunning();
+			// toggleTimeRunning();
+			playing = false;
+			// clearInterval(trackTimer);
 		}
 	}
 	
-	const toggleTimeRunning = () => {
-		if (audioFile.ended) {
-			isPlaying = false;
-			clearInterval(trackTimer);
-			// console.log(`Ended = ${audioFile.ended}`);	
-		} else {
-			trackTimer = setInterval(updateTime, 100);
-		}
-	}
+	// const toggleTimeRunning = () => trackTimer = setInterval(updateTime, 500);
 	
 
 	// Controls
-	// $: console.log(`isPlaying = ${isPlaying}`)
-	
-	const playPauseAudio = () => {
-		if (audioFile.paused) {
-			toggleTimeRunning()
-			audioFile.play();
-			isPlaying = true;
-		} else {
-			toggleTimeRunning()
-			audioFile.pause();
-			isPlaying = false;
-		}
+	// $: console.log(`playing = ${playing}`)
+
+	const togglePlay = () => {
+		playing 
+			? audioFile.pause()
+			: audioFile.play();
+		playing = !playing;
+		// toggleTimeRunning()
 	}
 	
 	const rewindAudio = () => audioFile.currentTime -= 10;
 	const forwardAudio = () => audioFile.currentTime += 10;
-	
-	// Volume Slider
-	
 	const adjustVol = () => audioFile.volume = vol / 100; 
 	
 	
 	// Playlist
 	const handleTrack = (e) => {
-		if (!isPlaying) {
+		if (!playing) {
 			trackIndex = Number(e.target.dataset.trackId);
 			loadTrack();
-			playPauseAudio(); // auto play
+			togglePlay(); // auto play
 		} else {
-			isPlaying = false;
+			playing = false;
 			audioFile.pause();
 			trackIndex = Number(e.target.dataset.trackId);
 			loadTrack();
-			playPauseAudio(); // auto play
+			togglePlay(); // auto play
 		}
 	}
 
@@ -145,9 +132,9 @@
 
 		<ProgressBarTime {currTimeDisplay} {totalTimeDisplay} {progress} />
 		
-		<Controls {isPlaying} 
+		<Controls pause={playing} 
 			on:rewind={rewindAudio}
-			on:playPause={playPauseAudio}
+			on:playPause={togglePlay}
 			on:forward={forwardAudio} />
 		
 		<VolumeSlider bind:vol on:input={adjustVol} />	
