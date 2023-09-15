@@ -26,6 +26,7 @@
 	// let trackTimer = 0;
 	let totalTrackTime = 0;
 	let playing = false;
+	let timer = 0;
 
 	// let playing = {
 	// 	src: '',
@@ -37,13 +38,13 @@
 	
 	const loadTrack = () => {
 		audioFile = new Audio(audioData[trackIndex].url);
-		audioFile.ontimeupdate = e => {
-			console.log(e)
-			currTimeDisplay = parseSec(e.timeStamp);
-		}
+		audioFile.ontimeupdate = () => currTimeDisplay = formatTimer(audioFile.currentTime);
+		
+
 
 		audioFile.onloadedmetadata = (e) => {
 			totalTrackTime = audioFile.duration;
+			totalTimeDisplay = formatTimer(totalTrackTime);
 			console.log(e)
 			updateTime();
 		}
@@ -68,8 +69,7 @@
 	// $: console.log(totalTrackTime)
 
 	
-	function parseSec(ms: number) {
-		const sec = ms / 1000;
+	function formatTimer(sec: number) {
 		const min = Math.floor(sec / 60);
 		const seconds = Math.floor(sec - min * 60);
 		return `${String(min).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
@@ -79,8 +79,8 @@
 	function updateTime() {
 		progress = audioFile.currentTime * (100 / totalTrackTime);
 		
-		currTimeDisplay = parseSec(audioFile.currentTime);
-		totalTimeDisplay = parseSec(totalTrackTime);
+		// currTimeDisplay = formatTimer(audioFile.currentTime);
+		// totalTimeDisplay = formatTimer(totalTrackTime);
 		
 		if (audioFile.ended) {
 			// toggleTimeRunning();
@@ -102,6 +102,16 @@
 		playing = !playing;
 		// toggleTimeRunning()
 	}
+
+	// const play = () => {
+	// 	audioFile.play();
+	// 	timer = setInterval(updateTime, 500);
+	// }
+
+	// const pause = () => {
+	// 	audioFile.pause();
+	// 	clearInterval(timer);
+	// }
 	
 	const rewindAudio = () => audioFile.currentTime -= 10;
 	const forwardAudio = () => audioFile.currentTime += 10;
@@ -139,7 +149,8 @@
 		
 		<VolumeSlider bind:vol on:input={adjustVol} />	
 	</section>
-		<PlayList on:click={handleTrack} audioData={audioData} />
+
+	<PlayList on:click={handleTrack} {audioData} />
 </main>
 
 
