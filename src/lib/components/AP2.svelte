@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from "svelte";
     import { writable } from "svelte/store";
-    const audio = writable()
+    
 
     let songs = [
         {
@@ -119,9 +119,9 @@
                 // }
         }
     })
-
+    
     const playIndex = writable(0);
-
+    const audio = writable()
     const player = writable({
         title: "",
         duration: 0.000000,
@@ -134,8 +134,8 @@
     const currentTime = writable(0);
 
     $: console.log(
-        $player,
-        $currentTime,
+        // $player,
+        // $currentTime,
         $player.status
     )
 
@@ -156,7 +156,7 @@
         $player.paused = true;
     }
     const play = () => {
-        $audio.play().then(() => $player.paused = false )
+        $audio.play();
         // $player.paused = false;
     }
 
@@ -165,6 +165,13 @@
         $playIndex = i;
         // play()
 
+    }
+
+    const loaded = () => {
+        console.log("I've loaded and should play")
+        $player.status = "Loaded";
+        // userInteraction = true;
+        play()
     }
 
     $: $player.title = songs[$playIndex].title;
@@ -180,7 +187,7 @@
 	bind:paused={$player.paused}
 	bind:volume={$player.volume}
     on:loadstart={() => $player.status = 'loading'}
-    on:loadeddata={() => userInteraction && play()}
+    on:loadeddata={loaded}
     on:play={() => $player.paused = false}
     on:pause={() => $player.paused = true}
     on:progress={() => $player.status = 'downloading'}
