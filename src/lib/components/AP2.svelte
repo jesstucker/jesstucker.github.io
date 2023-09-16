@@ -157,7 +157,7 @@
     const selectSong = i => {
         userInteraction = true;
         $playIndex = i;
-        $player.paused = false;
+        // play()
     }
 
     $: $player.title = songs[$playIndex].title;
@@ -173,7 +173,7 @@
 	bind:paused={$player.paused}
 	bind:volume={$player.volume}
     on:loadstart={() => $player.status = 'loading'}
-    on:loadeddata={() => userInteraction && $audio.play()}
+    on:loadeddata={() => userInteraction && play()}
     on:play={() => $player.paused = false}
     on:pause={() => $player.paused = true}
     on:progress={() => $player.status = 'downloading'}
