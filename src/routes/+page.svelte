@@ -6,6 +6,7 @@
 	import Controls from '$lib/components/AudioPlayer/Controls.svelte';
 	import ProgressBarTime from "$lib/components/AudioPlayer/ProgressBarTime.svelte";
 	import Ap2 from "$lib/components/AP2.svelte";
+	import Ap3 from "$lib/components/AP3.svelte";
 	
 	let fetchingSongs = Promise.resolve([])
 	$: console.log(fetchingSongs)
@@ -60,7 +61,7 @@
 			{/await}
 		</div> 
 	</Notecard>
-
+	<Ap3 />
 	<Ap2 />
 	
 </section>

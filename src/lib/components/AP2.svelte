@@ -157,6 +157,7 @@
     }
     const play = () => {
         $audio.play();
+        $player.status = "loaded";
         // $player.paused = false;
     }
 
@@ -167,16 +168,10 @@
 
     }
 
-    const loaded = () => {
-        console.log("I've loaded and should play")
-        $player.status = "Loaded";
-        // userInteraction = true;
-        play()
-    }
-
     $: $player.title = songs[$playIndex].title;
     // $: src = songs[$playIndex].src;
     
+
 
 </script>
 
@@ -187,7 +182,7 @@
 	bind:paused={$player.paused}
 	bind:volume={$player.volume}
     on:loadstart={() => $player.status = 'loading'}
-    on:loadeddata={loaded}
+    on:loadeddata={play}
     on:play={() => $player.paused = false}
     on:pause={() => $player.paused = true}
     on:progress={play}
