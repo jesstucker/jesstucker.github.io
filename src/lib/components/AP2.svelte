@@ -190,7 +190,7 @@
     on:loadeddata={loaded}
     on:play={() => $player.paused = false}
     on:pause={() => $player.paused = true}
-    on:progress={() => $player.status = 'downloading'}
+    on:progress={play}
 	on:waiting={() => $player.status = 'waiting'}
 	on:timeupdate={() => $player.status = 'playing'}
 	on:seeking={() => $player.status = 'seeking'}
