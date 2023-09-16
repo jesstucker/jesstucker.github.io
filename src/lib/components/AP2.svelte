@@ -58,12 +58,12 @@
                 navigator.mediaSession.setActionHandler("stop", () => {
                     /* Code excerpted. */
                 });
-                navigator.mediaSession.setActionHandler("seekbackward", () => {
-                    /* Code excerpted. */
-                });
-                navigator.mediaSession.setActionHandler("seekforward", () => {
-                    /* Code excerpted. */
-                });
+                // navigator.mediaSession.setActionHandler("seekbackward", () => {
+                //     /* Code excerpted. */
+                // });
+                // navigator.mediaSession.setActionHandler("seekforward", () => {
+                //     /* Code excerpted. */
+                // });
                 navigator.mediaSession.setActionHandler("seekto", () => {
                     /* Code excerpted. */
                 });
