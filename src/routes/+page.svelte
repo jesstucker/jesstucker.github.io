@@ -65,7 +65,7 @@
 		</div> 
 	</Notecard>
 	<Ap3 />
-	<!-- <Ap2 /> -->
+	<Ap2 />
 	
 </section>
 
