@@ -161,7 +161,7 @@
     }
 
     $: $player.title = songs[$playIndex].title;
-
+    $: src = songs[$playIndex].src;
     
 
 </script>
@@ -181,7 +181,7 @@
 	on:timeupdate={() => $player.status = 'playing'}
 	on:seeking={() => $player.status = 'seeking'}
 	on:ended={() => $player.status = 'ended'}
-	src={songs[$playIndex].src}
+	src={src}
     controls
 ></audio>
 <div>
