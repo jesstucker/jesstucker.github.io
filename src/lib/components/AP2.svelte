@@ -47,14 +47,8 @@
                     ],
                 });
 
-                navigator.mediaSession.setActionHandler("play", () => {
-                    /* Code excerpted. */
-                    play()
-                });
-                navigator.mediaSession.setActionHandler("pause", () => {
-                    /* Code excerpted. */
-                    pause()
-                });
+                navigator.mediaSession.setActionHandler("play", () => play())
+                navigator.mediaSession.setActionHandler("pause", () => pause())
                 navigator.mediaSession.setActionHandler("stop", () => {
                     /* Code excerpted. */
                 });
@@ -64,9 +58,9 @@
                 // navigator.mediaSession.setActionHandler("seekforward", () => {
                 //     /* Code excerpted. */
                 // });
-                navigator.mediaSession.setActionHandler("seekto", () => {
-                    /* Code excerpted. */
-                });
+                // navigator.mediaSession.setActionHandler("seekto", () => {
+                //     /* Code excerpted. */
+                // });
                 navigator.mediaSession.setActionHandler("previoustrack", () => {
                     prev();
                     navigator.mediaSession.metadata.title = songs[$playIndex].title;
@@ -163,6 +157,7 @@
     const selectSong = i => {
         userInteraction = true;
         $playIndex = i;
+        $player.paused = false;
     }
 
     $: $player.title = songs[$playIndex].title;
