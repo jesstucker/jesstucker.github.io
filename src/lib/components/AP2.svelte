@@ -140,12 +140,14 @@
     )
 
     const next = () => {
+        $player.status = "loading next song";
         songs.length - 1 === $playIndex
             ? $playIndex = 0
             : $playIndex = $playIndex + 1;
     }
 
     const prev = () => {
+        $player.status = "loading previous song";
         $playIndex === 0
             ? $playIndex = songs.length - 1
             : $playIndex = $playIndex - 1;
@@ -189,7 +191,7 @@
 	on:waiting={() => $player.status = 'waiting'}
 	on:timeupdate={() => $player.status = 'playing'}
 	on:seeking={() => $player.status = 'seeking'}
-	on:ended={() => $player.status = 'ended'}
+	on:ended={next}
 	src={songs[$playIndex].src}
     controls
     preload="auto"
