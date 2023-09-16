@@ -151,17 +151,24 @@
             : $playIndex = $playIndex - 1;
     }
 
-    const pause = () => $player.paused = true;
-    const play = () => $player.paused = false;
+    const pause = () => {
+        $audio.pause();
+        $player.paused = true;
+    }
+    const play = () => {
+        $audio.play().then(() => $player.paused = false )
+        // $player.paused = false;
+    }
 
     const selectSong = i => {
         userInteraction = true;
         $playIndex = i;
-        // play()
+        play()
+
     }
 
     $: $player.title = songs[$playIndex].title;
-    $: src = songs[$playIndex].src;
+    // $: src = songs[$playIndex].src;
     
 
 </script>
@@ -181,7 +188,7 @@
 	on:timeupdate={() => $player.status = 'playing'}
 	on:seeking={() => $player.status = 'seeking'}
 	on:ended={() => $player.status = 'ended'}
-	src={src}
+	src={songs[$playIndex].src}
     controls
 ></audio>
 <div>
