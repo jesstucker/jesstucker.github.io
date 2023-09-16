@@ -192,6 +192,7 @@
 	on:ended={() => $player.status = 'ended'}
 	src={songs[$playIndex].src}
     controls
+    preload="auto"
 ></audio>
 <div>
     <div>STATUS: {$player.status}</div>
