@@ -69,17 +69,13 @@
 			loadTrack();
 			togglePlay(); // auto play
 		}
-		// $track.audioFile.srcObj = null;
-		// trackIndex = Number(e.detail.trackIndex)
-		// loadTrack();
-		// $track.audioFile.play();
 	}
 
-	const changeTrack = e => {
-		trackIndex = Number(e.target.dataset.trackId);
-		loadTrack();
-		$track.audioFile.play();
-	}
+	// const changeTrack = e => {
+	// 	trackIndex = Number(e.target.dataset.trackId);
+	// 	loadTrack();
+	// 	$track.audioFile.play();
+	// }
 
 </script>
 

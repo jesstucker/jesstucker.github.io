@@ -10,17 +10,18 @@ export const togglePlay = () => {
     playing.update(p => !p);
 }
 
-export const track = writable({
-    audioFile: "",
+interface Track {
+    audioFile: HTMLAudioElement,
+    title: string,
+    duration: string,
+    elapsed: string,
+    progress: number,
+}
+
+export const track = writable<Track>({
+    audioFile: '',
     title: "loading...",
-    artist: "",
-    album: "",
-    albumArt: "",
     duration: "00:00",
     elapsed: "00:00",
     progress: 0,
-    // playing: false,
-    shuffle: false,
-    repeat: false,
-    volume: 0.5,
 });
