@@ -163,7 +163,7 @@
     const selectSong = i => {
         userInteraction = true;
         $playIndex = i;
-        play()
+        // play()
 
     }
 
