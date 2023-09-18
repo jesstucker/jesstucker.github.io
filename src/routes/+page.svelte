@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from "svelte";
 	import { track, playing, togglePlay,
 	songs,
@@ -9,6 +9,8 @@
 	play,
 	next,
 	prev,
+	progressPercent,
+	songDuration,
  } from '$lib/stores'
 	import Notecard from "$lib/components/Notecard.svelte";
 	import AudioPlayer from "$lib/components/AudioPlayer/AudioPlayer.svelte";
@@ -47,6 +49,18 @@
 						? $songs[$playIndex].title
 						: '';
 
+	let scrubberPosition = 0;
+	let scrubberWidth = 0;
+
+	const syncTracking = (e:MouseEvent) => {
+		scrubberPosition = ( e.offsetX / scrubberWidth ) * 100
+	}
+	const hideTracking = () => {
+		scrubberPosition = 0
+	}
+	const updatePlayPosition = () => {
+		$currentTime = $songDuration * (scrubberPosition / 100)
+	}
 </script>
 
 <svelte:head>
@@ -55,29 +69,6 @@
 </svelte:head>
 
 <section>
-	<!-- <Notecard>
-		<div slot="title">$$$</div>
-		<div slot="body">
-			$$$$$$$$$$$$$$ $$$$$$$$$$$$$$$$$$$$$ $$$$$$$$$$$$$$ $$$$$$$$$$$$$$$ $$$$$$$$$$$$$$ $$$$$$$$$$ $$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$$$$$$ $$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$$$ $$$$$$$$$$$ $$$$$$$$$$ $$$$$ $ $$$$$$$$$$$$$$$$ $$$$$$$$$$$ $$$$$ $$$$ $$$$ $$$$$$$$$ $$$$$$$ $$$$$$$$$ $$$$$$$ $$$$$$$$$$$$$$$ $$$$$$$$$$$ $$$$$$ $$$$$ $$$$ $ $$$ $$$$$$ $$$$$$$$$ $$$$$$$$$$$$$$$$ $$$$$$$$$$$$ $$$$$$$ $$$$$$$$
-		</div>
-	</Notecard> -->
-	<!-- <Notecard>
-		<div slot="title">
-			<div class="flex justify-between">
-				<div>{$track.elapsed} / {$track.duration}</div>
-
-				<Controls pause={$playing} on:playPause={togglePlay} />
-			</div>
-
-			<ProgressBarTime progress={$track.progress}/>
-		</div>
-		<div slot="body">
-			{#await fetchingSongs then songs}
-				<AudioPlayer audioData={songs}/>
-			{/await}
-		</div> 
-	</Notecard> -->
-	<!-- <Ap3 /> -->
 	<Notecard>
 		<div slot="title">
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
@@ -87,19 +78,13 @@
 				<button class="player" on:click={play}>Play</button>
 				<button class="player" on:click={next}>Next</button>
 			</div>
-			<div class="flex justify-end">
-				<!-- <div>{$track.elapsed} / {$track.duration}</div>
-
-				<Controls pause={$playing} on:playPause={togglePlay} />
-			</div>
-
-			<ProgressBarTime progress={$track.progress}/> -->
 			<div class="">
-				{$currentTime} / { $player.duration }
+				<ProgressBarTime progress={$progressPercent}/>
 			</div>
-			<!-- {$player.title} -->
+				<div class="flex justify-end">
+					{$currentTime} / { $songDuration }
+				</div>
 			</div>
-		</div>
 		<div slot="body">
 			{#each $songs as song,i}
 				<div on:click={() => selectSong(i)}
@@ -112,11 +97,37 @@
 			{/each}
 		</div>
 	</Notecard>
-	<!-- <Ap2 /> -->
+
+	<div style="width: 300px">
+		<div class="scrubber" 
+			bind:offsetWidth={scrubberWidth}
+			on:mousemove={syncTracking} 
+			on:mouseleave={hideTracking} 
+			on:click={updatePlayPosition}>
+			<div class="to-position" style="width: {scrubberPosition}%"></div>
+		</div>
+		<div class="position" >{scrubberPosition}</div>
+	</div>
 	
 </section>
 
 <style>
+	.scrubber {
+		width: 100%;
+		height: 40px;
+		background-color: grey;
+		position: relative;
+	}
+
+	.scrubber .to-position {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		background-color: red;
+	}
+
 	.song:hover {
 		background-color: #FBF71955;
 	}
@@ -130,7 +141,6 @@
 	button.player {
 		border: none;
 		padding: 0.03125in;
-		/* margin: 0; */
 		background-color: #fff;
 		cursor: pointer;
 	}

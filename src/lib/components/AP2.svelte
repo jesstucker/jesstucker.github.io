@@ -6,12 +6,13 @@
         audio,
         player,
         currentTime,
+        songDuration,
         next,
         prev,
         pause,
         play,
         selectSong,
-        songs
+        songs,
     } from '$lib/stores'
                 
 
@@ -47,79 +48,30 @@
                     artist: "Jess",
                     album: "",
                     artwork: [
-                    {
-                        src: "https://dummyimage.com/512x512",
-                        sizes: "512x512",
-                        type: "image/png",
-                    },
+                        {
+                            src: "https://dummyimage.com/512x512",
+                            sizes: "512x512",
+                            type: "image/png",
+                        },
                     ],
                 });
 
                 navigator.mediaSession.setActionHandler("play", () => play())
                 navigator.mediaSession.setActionHandler("pause", () => pause())
                 navigator.mediaSession.setActionHandler("stop", () => pause())
-                // navigator.mediaSession.setActionHandler("seekbackward", () => {
-                //     /* Code excerpted. */
-                // });
+                navigator.mediaSession.setActionHandler("seekbackward", () => {
+                    /* Code excerpted. */
+                });
                 navigator.mediaSession.setActionHandler("seekforward", null)
                 navigator.mediaSession.setActionHandler("seekto", () => null)
                 navigator.mediaSession.setActionHandler("previoustrack", () => {
                     prev();
-                    // navigator.mediaSession.metadata.title = $songs[$playIndex].title;
+                    navigator.mediaSession.metadata.title = $songs[$playIndex].title;
                 });
                 navigator.mediaSession.setActionHandler("nexttrack", () => {
                     next();
-                    // navigator.mediaSession.metadata.title = $songs[$playIndex].title;
+                    navigator.mediaSession.metadata.title = $songs[$playIndex].title;
                 });
-
-                // navigator.mediaSession.setActionHandler("skipad", () => {
-                //     /* Code excerpted. */
-                // });
-                // navigator.mediaSession.setActionHandler("togglecamera", () => {
-                //     /* Code excerpted. */
-                // });
-                // navigator.mediaSession.setActionHandler("togglemicrophone", () => {
-                //     /* Code excerpted. */
-                // });
-                // navigator.mediaSession.setActionHandler("hangup", () => {
-                //     /* Code excerpted. */
-                // });
-                // const actionHandlers = [
-                //     // play
-                //     [
-                //         "play",
-                //             async () => {
-                //             // play our audio
-                //             // await audioEl.play();
-                //             // set playback state
-                            
-                //             navigator.mediaSession.playbackState = "playing";
-                //             // update our status element
-                //             navigator.mediaSession.metadata.title = songs[$playIndex].title;
-
-                //             // updateStatus(allMeta[index], "Action: play  |  Track is playing…");
-                //         },
-                //     ],
-                //     [
-                //         "pause",
-                //         () => {
-                //             // pause out audio
-                //             // audioEl.pause();
-                //             // set playback state
-                //             navigator.mediaSession.playbackState = "paused";
-                //             // update our status element
-                //             // updateStatus(allMeta[index], "Action: pause  |  Track has been paused…");
-                //         },
-                //     ],
-                // ];
-
-                // for (const [action, handler] of actionHandlers) {
-                //     try {
-                //         navigator.mediaSession.setActionHandler(action, handler);
-                //     } catch (error) {
-                //         console.log(`The media session action "${action}" is not supported yet.`);
-                //     }
-                // }
         }
     })
 
@@ -132,7 +84,7 @@
 {:then foo }
     <audio
         bind:this={$audio}
-        bind:duration={$player.duration}
+        bind:duration={$songDuration}
         bind:currentTime={$currentTime}
         bind:paused={$player.paused}
         bind:volume={$player.volume}

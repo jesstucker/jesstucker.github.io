@@ -1,4 +1,4 @@
-import { type Writable, writable, get } from "svelte/store";
+import { type Writable, writable, get, derived } from "svelte/store";
 
 
 export const volume = writable(0.5);
@@ -37,7 +37,6 @@ export const playIndex = writable(0);
 export const audio = writable<HTMLAudioElement>()
 export const player = writable({
     title: "",
-    duration: 0.000000,
     paused: true,
     volume: 1,
     src: "",
@@ -49,13 +48,16 @@ interface Song {
     src: string,
 }
 
-
-
 export const songs = writable<Song[]>([]);
 
 export const currentTime = writable(0);
+export const songDuration = writable(0.000000);
 
 export const userInteraction = writable(false);
+
+export const progressPercent = derived([currentTime, songDuration], ([$currentTime, $songDuration]) => 
+    $currentTime * (100 / $songDuration)
+);
 
 
 export const next = () => 
