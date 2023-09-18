@@ -49,18 +49,12 @@
 
                 navigator.mediaSession.setActionHandler("play", () => play())
                 navigator.mediaSession.setActionHandler("pause", () => pause())
-                navigator.mediaSession.setActionHandler("stop", () => {
-                    /* Code excerpted. */
-                });
+                navigator.mediaSession.setActionHandler("stop", () => pause())
                 // navigator.mediaSession.setActionHandler("seekbackward", () => {
                 //     /* Code excerpted. */
                 // });
-                // navigator.mediaSession.setActionHandler("seekforward", () => {
-                //     /* Code excerpted. */
-                // });
-                // navigator.mediaSession.setActionHandler("seekto", () => {
-                //     /* Code excerpted. */
-                // });
+                navigator.mediaSession.setActionHandler("seekforward", null)
+                navigator.mediaSession.setActionHandler("seekto", () => null)
                 navigator.mediaSession.setActionHandler("previoustrack", () => {
                     prev();
                     navigator.mediaSession.metadata.title = songs[$playIndex].title;
