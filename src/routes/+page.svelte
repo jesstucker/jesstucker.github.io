@@ -13,11 +13,8 @@
 	songDuration,
  } from '$lib/stores'
 	import Notecard from "$lib/components/Notecard.svelte";
-	import AudioPlayer from "$lib/components/AudioPlayer/AudioPlayer.svelte";
-	import Controls from '$lib/components/AudioPlayer/Controls.svelte';
 	import ProgressBarTime from "$lib/components/AudioPlayer/ProgressBarTime.svelte";
 	import Ap2 from "$lib/components/AP2.svelte";
-	import Ap3 from "$lib/components/AP3.svelte";
 	
 	let fetchingSongs = Promise.resolve([{
 		name: '',
@@ -49,18 +46,7 @@
 						? $songs[$playIndex].title
 						: '';
 
-	let scrubberPosition = 0;
-	let scrubberWidth = 0;
 
-	const syncTracking = (e:MouseEvent) => {
-		scrubberPosition = ( e.offsetX / scrubberWidth ) * 100
-	}
-	const hideTracking = () => {
-		scrubberPosition = 0
-	}
-	const updatePlayPosition = () => {
-		$currentTime = $songDuration * (scrubberPosition / 100)
-	}
 </script>
 
 <svelte:head>
@@ -97,17 +83,6 @@
 			{/each}
 		</div>
 	</Notecard>
-
-	<div style="width: 300px">
-		<div class="scrubber" 
-			bind:offsetWidth={scrubberWidth}
-			on:mousemove={syncTracking} 
-			on:mouseleave={hideTracking} 
-			on:click={updatePlayPosition}>
-			<div class="to-position" style="width: {scrubberPosition}%"></div>
-		</div>
-		<div class="position" >{scrubberPosition}</div>
-	</div>
 	
 </section>
 
