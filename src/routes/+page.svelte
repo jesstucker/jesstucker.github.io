@@ -53,7 +53,7 @@
 	<meta name="description" content="$$$$$$" />
 </svelte:head>
 
-<section class="scale-150 origin-top-left">
+<section class=" scale-150 origin-top-left md:scale-100">
 	<Notecard>
 		<div slot="title">
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
