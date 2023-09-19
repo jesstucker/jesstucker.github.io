@@ -37,6 +37,11 @@
         display: flex;
         justify-content: center;
         padding: 0.125in 0 0 0;
+        /* position: sticky; */
+        top:0;
+        background-color: #f8f4f3f2;
+        /* background: green; */
+        z-index: 1;
     }
 
     .title {
@@ -52,7 +57,7 @@
         line-height: 0.25in;
         padding: 0.0625in 0.125in 0;
         box-sizing: border-box;
-        z-index: 1;
+        z-index: 0;
     }
 
     .body::-webkit-scrollbar {

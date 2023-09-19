@@ -58,21 +58,18 @@
 		<div slot="title">
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 			<Ap2 />
-			<div class="controls-buttons flex justify-center my-2">
-				<button class="flex rotate-180 scale-75 space-x-[3px] -translate-x-2" on:click={prev}>
-					<div class="bar"></div>
-					<div class="triangle"></div>
-					
+			<div class="controls-buttons flex justify-end my-1 space-x-1 mr-[0.125in] ">
+				<button class="flex rotate-180 space-x-[3px]" on:click={prev}>
+					<div class="bar  origin-center"></div>
+					<div class="triangle "></div>
 				</button>
-				<button on:click={togglePlay}> 
+				<button on:click={togglePlay} class=""> 
 					<div class="triangle" class:playing={!$player.paused}></div>
 				</button>
-				<button class="flex scale-75 space-x-[3px] translate-x-2" on:click={next}>
-					<div class="bar"></div>
-					<div class="triangle"></div>
+				<button class="flex space-x-[3px]" on:click={next}>
+					<div class="bar  origin-center"></div>
+					<div class="triangle "></div>
 				</button>
-
-
 			</div>
 			<div class="">
 				<ProgressBarTime progress={$progressPercent}/>
@@ -93,6 +90,9 @@
 </section>
 
 <style>
+	button {
+		@apply bg-white p-1  rounded-md m-0;
+	}
 	.song:hover {
 		background-color: #FBF71955;
 	}
@@ -103,19 +103,6 @@
 		top: 0;
 		bottom: 0;
 	}
-	button.player {
-		border: none;
-		padding: 0.03125in;
-		background-color: #fff;
-		cursor: pointer;
-	}
-	button.player:hover {
-		background-color: #FBF71955;
-	}
-
-	.controls-buttons {
-		/* padding: 0 0.125in 0.03125in 0 ; */
-	}
 
 	.bar {
 		padding: 0;
@@ -124,7 +111,7 @@
 		height: 16px;
 		border-color: transparent transparent transparent #202020;
 		border-style: solid;
-		border-width: 0 0 0 3px;
+		border-width: 0 0 0 4px;
 	}
 
 	.triangle {
