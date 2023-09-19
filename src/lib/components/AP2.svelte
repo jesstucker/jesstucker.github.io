@@ -22,7 +22,6 @@
         title: '',
         src: ''
     }])
-    // let userInteraction = false;
 
     onMount(() => {
         fetchingSongs = 

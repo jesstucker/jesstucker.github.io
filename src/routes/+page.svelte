@@ -60,14 +60,20 @@
 		<div slot="title">
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 			<Ap2 />
-			<div class="controls-buttons flex justify-end space-x-[0.0625in]">
-				<button class="player" on:click={prev}>Prev</button>
-				<button class="player" on:click={togglePlay}>Play</button>
-				<button class="player" on:click={next}>Next</button>
-
+			<div class="controls-buttons flex justify-end space-x-[0.125in]">
+				<button class="flex rotate-180" on:click={prev}>
+					<div class="triangle"></div>
+					<div class="triangle"></div>
+				</button>
 				<button on:click={togglePlay}> 
 					<div class="triangle" class:playing={!$player.paused}></div>
 				</button>
+				<button class="flex" on:click={next}>
+					<div class="triangle"></div>
+					<div class="triangle"></div>
+				</button>
+
+
 			</div>
 			<div class="">
 				<ProgressBarTime progress={$progressPercent}/>
@@ -88,16 +94,6 @@
 </section>
 
 <style>
-
-	/* This animates the circle when it switches to play */
-	#circle {
-		transition: stroke-dashoffset 300ms ease-in;
-		stroke-dashoffset: 0;
-		fill: none;
-	}
-	#circle.playState {
-		stroke-dashoffset: 314;
-	}
 	.song:hover {
 		background-color: #FBF71955;
 	}
