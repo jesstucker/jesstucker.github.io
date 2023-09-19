@@ -1,5 +1,11 @@
-<script>
+<script lang="ts">
+	import { onMount } from "svelte";
 
+    let body: HTMLDivElement;
+    let cardHeight = 0;
+    
+
+    onMount( () => cardHeight = body.scrollHeight )
 </script>
 
 <div class="notecard" >
@@ -8,7 +14,8 @@
             <slot name="title"></slot>
         </div>
     </div>
-    <div class="body">
+    <div class="body" bind:this={body}>
+        <div class="bg-body" style="height: {cardHeight}px" ></div>
         <slot name="body"></slot>
     </div>
 </div>
@@ -20,27 +27,23 @@
         width: 3in;
         background-color: #f8f4f3f2;
         transition: box-shadow 0.45s ease, transform 0.15s linear;
-        box-shadow: 0.1em 0.1em 0.2em 1px #8181811c;
+        box-shadow:  0.4em 0.6em 2.6em 2px #00000002;
         border: 1px dotted rgba(201, 197, 191, 0.404);
         display: flex;
         flex-direction: column;
-    } 
+    }
     .notecard:hover {
-        box-shadow:  0.4em 0.6em 2.6em 2px #00000017;
+        box-shadow: 0.1em 0.1em 0.2em 1px #81818110;
     }
 
     .l-title {
         height: calc(9/16 *1in);
         border-bottom: 1.5px solid #FFC0CB;
-        /* border-image: linear-gradient(to bottom, transparent 16.5%, rgba(253, 65, 55, 0.251) 16.85% 100%); */
-        /* border-image-slice: 1; */
         display: flex;
         justify-content: center;
         padding: 0.125in 0 0 0;
-        /* position: sticky; */
         top:0;
         background-color: #f8f4f3f2;
-        /* background: green; */
         z-index: 1;
     }
 
@@ -64,14 +67,13 @@
         display: none;
     }
 
-    .body::before {
+    .bg-body {
         position: absolute;
         content: "";
         top: 0.25in;
         left: 0;
         background-image: linear-gradient(rgba(88, 215, 229, 0.135) 1.5px, transparent 1.5px);
         background-size: 100% 0.25in;
-        height: 100%;
         width: 100%;
         z-index: -1;
     }
