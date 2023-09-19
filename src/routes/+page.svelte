@@ -59,14 +59,14 @@
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 			<Ap2 />
 			<div class="controls-buttons flex justify-end my-1 space-x-1 mr-[0.125in] ">
-				<button class="flex rotate-180 space-x-[3px]" on:click={prev}>
+				<button class="flex rotate-180 space-x-[3px] p-1" on:click={prev}>
 					<div class="bar  origin-center"></div>
 					<div class="triangle "></div>
 				</button>
-				<button on:click={togglePlay} class=""> 
+				<button on:click={togglePlay} class="px-3 py-1"> 
 					<div class="triangle" class:playing={!$player.paused}></div>
 				</button>
-				<button class="flex space-x-[3px]" on:click={next}>
+				<button class="flex space-x-[3px] p-1" on:click={next}>
 					<div class="bar  origin-center"></div>
 					<div class="triangle "></div>
 				</button>
@@ -91,7 +91,7 @@
 
 <style>
 	button {
-		@apply bg-white p-1  rounded-md m-0;
+		@apply bg-white rounded-md m-0;
 	}
 	.song:hover {
 		background-color: #FBF71955;
