@@ -53,7 +53,7 @@
 	<meta name="description" content="$$$$$$" />
 </svelte:head>
 
-<section>
+<section class="scale-150 origin-top-left">
 	<Notecard>
 		<div slot="title">
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
@@ -91,7 +91,11 @@
 
 <style>
 	button {
-		@apply bg-white rounded-md m-0;
+		@apply  rounded-md m-0;
+		background-color: #fffafa;
+	}
+	button:hover {
+		background-color: #eeeeee;
 	}
 	.song:hover {
 		background-color: #FBF71955;
