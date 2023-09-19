@@ -1,17 +1,15 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import {
-	songs,
-	selectSong,
-	player,
-	playIndex,
-	currentTime,
-	togglePlay,
-	next,
-	prev,
-	progressPercent,
-	songDuration,
- } from '$lib/stores'
+		songs,
+		selectSong,
+		player,
+		playIndex,
+		togglePlay,
+		next,
+		prev,
+		progressPercent
+	} from '$lib/stores'
 	import Notecard from "$lib/components/Notecard.svelte";
 	import ProgressBarTime from "$lib/components/AudioPlayer/ProgressBarTime.svelte";
 	import Ap2 from "$lib/components/AP2.svelte";
