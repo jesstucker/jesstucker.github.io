@@ -2,6 +2,7 @@
 	import {
 		currentTime,
 		songDuration,
+		formattedTimer
 	} from '$lib/stores'
 
 	export let progress:number;
@@ -21,34 +22,34 @@
 </script>
 
 <div id="progress-bar-cont" class="relative">
+	<div class="flex justify-end absolute top-0 right-0 pr-[0.125in]">
+		{$formattedTimer}
+	</div>
 	<div id="bar" style="width: {progress}%" class="absolute">
 	</div>
-	<div class="scrubber absolute" 
+	<div class="scrubber absolute " 
 		bind:offsetWidth={scrubberWidth}
 		on:mousemove={syncTracking} 
 		on:mouseleave={hideTracking} 
 		on:click={updatePlayPosition}>
 			<div class="to-position" style="width: {scrubberPosition}%"></div>
 	</div>
+
 </div>
-
-
-
-	<!-- <div class="position" >{scrubberPosition}</div> -->
-
 
 <style>
 	#progress-bar-cont {
 		width: 100%;
 		/* display: flex; */
 		cursor: pointer;
-		height: 10px;
+		height: 1rem;
 	}
 
 	#bar {
 		width: 0%;
 		height: 100%;
-		background: linear-gradient(to right, #FBF71955, #FBF719);
+		/* background: linear-gradient(to right, #FBF71955, #FBF719); */
+		background-color: #FFC0CB99;
 	}
 
 	.scrubber {
@@ -65,6 +66,6 @@
 		top: 0;
 		left: 0;
 		height: 100%;
-		background-color: #fb8a1931;
+		background-color: #FFC0CB99;
 	}
 </style>

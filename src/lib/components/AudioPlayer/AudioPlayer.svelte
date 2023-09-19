@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	import PlayList from './PlayList.svelte';
-	import type { HTMLAudioElement } from './$types';
+
 	import { track, playing, togglePlay } from '$lib/stores'
 
 	interface AudioData {

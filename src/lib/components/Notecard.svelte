@@ -31,12 +31,12 @@
 
     .l-title {
         height: calc(9/16 *1in);
-        border-bottom: 1.5px solid pink;
+        border-bottom: 1.5px solid #FFC0CB;
         /* border-image: linear-gradient(to bottom, transparent 16.5%, rgba(253, 65, 55, 0.251) 16.85% 100%); */
         /* border-image-slice: 1; */
         display: flex;
         justify-content: center;
-        padding: 0.125in 0.125in 0 0.125in;
+        padding: 0.125in 0 0 0;
     }
 
     .title {

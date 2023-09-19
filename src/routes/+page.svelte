@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { track, playing, togglePlay,
+	import {
 	songs,
 	selectSong,
 	player,
 	playIndex,
 	currentTime,
-	play,
+	togglePlay,
 	next,
 	prev,
 	progressPercent,
@@ -47,6 +47,7 @@
 						: '';
 
 
+
 </script>
 
 <svelte:head>
@@ -59,17 +60,18 @@
 		<div slot="title">
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 			<Ap2 />
-			<div class="flex justify-end space-x-2 mb-1">
+			<div class="controls-buttons flex justify-end space-x-[0.0625in]">
 				<button class="player" on:click={prev}>Prev</button>
-				<button class="player" on:click={play}>Play</button>
+				<button class="player" on:click={togglePlay}>Play</button>
 				<button class="player" on:click={next}>Next</button>
+
+				<button on:click={togglePlay}> 
+					<div class="triangle" class:playing={!$player.paused}></div>
+				</button>
 			</div>
 			<div class="">
 				<ProgressBarTime progress={$progressPercent}/>
 			</div>
-				<div class="flex justify-end">
-					{$currentTime} / { $songDuration }
-				</div>
 			</div>
 		<div slot="body">
 			{#each $songs as song,i}
@@ -83,26 +85,19 @@
 			{/each}
 		</div>
 	</Notecard>
-	
 </section>
 
 <style>
-	.scrubber {
-		width: 100%;
-		height: 40px;
-		background-color: grey;
-		position: relative;
-	}
 
-	.scrubber .to-position {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		background-color: red;
+	/* This animates the circle when it switches to play */
+	#circle {
+		transition: stroke-dashoffset 300ms ease-in;
+		stroke-dashoffset: 0;
+		fill: none;
 	}
-
+	#circle.playState {
+		stroke-dashoffset: 314;
+	}
 	.song:hover {
 		background-color: #FBF71955;
 	}
@@ -121,6 +116,27 @@
 	}
 	button.player:hover {
 		background-color: #FBF71955;
+	}
+
+	.controls-buttons {
+		padding: 0 0.125in 0.03125in 0 ;
+	}
+
+	.triangle {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		height: 16px;
+		border-color: transparent transparent transparent #202020;
+		transition: 100ms border-width ease;
+		will-change: border-width;
+		cursor: pointer;
+		border-style: solid;
+		border-width: 8px 0 8px 12px;
+	}
+	.playing {
+		border-style: double;
+		border-width: 0px 0 0px 12px;
 	}
 
 </style>

@@ -1,15 +1,16 @@
 import { type Writable, writable, get, derived } from "svelte/store";
+import { formatTimer } from "$lib/utils";
 
 
 export const volume = writable(0.5);
 export const playing = writable(false);
 
-export const togglePlay = () => {
-    get(playing)
-        ? get(track).audioFile.pause()
-        : get(track).audioFile.play();
-    playing.update(p => !p);
-}
+// export const togglePlay = () => {
+//     get(playing)
+//         ? get(track).audioFile.pause()
+//         : get(track).audioFile.play();
+//     playing.update(p => !p);
+// }
 
 interface Track {
     audioFile: HTMLAudioElement,
@@ -59,6 +60,10 @@ export const progressPercent = derived([currentTime, songDuration], ([$currentTi
     $currentTime * (100 / $songDuration)
 );
 
+export const formattedTimer = derived([currentTime, songDuration], ([$currentTime, $songDuration]) => 
+    `${formatTimer($currentTime)} / ${formatTimer($songDuration)}`
+);
+
 
 export const next = () => 
     get(songs).length - 1 === get(playIndex)
@@ -80,13 +85,18 @@ export const pause = () => {
     }));
 }
 
+export const togglePlay = () =>
+    get(player).paused
+        ? play()
+        : pause();
+
 export const play = () => {
     get(audio).play();
     player.update(p => ({
         ...p,
         paused: false,
-    }));
-}
+    }))}
+
 
 
 export const selectSong = (i:number) => {
@@ -96,4 +106,5 @@ export const selectSong = (i:number) => {
     }));
     userInteraction.set(true);
     playIndex.set(i);
+    // togglePlay();
 }

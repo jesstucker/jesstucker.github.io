@@ -9,10 +9,12 @@
         songDuration,
         next,
         prev,
-        pause,
         play,
+        pause,
+        togglePlay,
         selectSong,
         songs,
+		userInteraction,
     } from '$lib/stores'
                 
 
@@ -56,8 +58,8 @@
                     ],
                 });
 
-                navigator.mediaSession.setActionHandler("play", () => play())
-                navigator.mediaSession.setActionHandler("pause", () => pause())
+                navigator.mediaSession.setActionHandler("play", () => togglePlay())
+                navigator.mediaSession.setActionHandler("pause", () => togglePlay())
                 navigator.mediaSession.setActionHandler("stop", () => pause())
                 navigator.mediaSession.setActionHandler("seekbackward", () => {
                     /* Code excerpted. */
@@ -89,16 +91,15 @@
         bind:paused={$player.paused}
         bind:volume={$player.volume}
         on:loadstart={() => $player.status = 'loading'}
-        on:loadeddata={play}
+        on:loadeddata={() => { $userInteraction && play() }}
         on:play={() => $player.paused = false}
         on:pause={() => $player.paused = true}
-        on:progress={play}
+        on:progress={() => { $userInteraction && play() }}
         on:waiting={() => $player.status = 'waiting'}
         on:timeupdate={() => $player.status = 'playing'}
         on:seeking={() => $player.status = 'seeking'}
         on:ended={next}
         src={$songs[$playIndex].src}
-
         preload="auto"
     ></audio>
 {/await}
