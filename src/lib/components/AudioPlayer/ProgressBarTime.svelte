@@ -22,7 +22,7 @@
 </script>
 
 <div id="progress-bar-cont" class="relative">
-	<div class="flex justify-end absolute top-0 right-0 pr-[0.125in]">
+	<div class="flex justify-end absolute top-0 right-0">
 		{$formattedTimer}
 	</div>
 	<div id="bar" style="width: {progress}%" class="absolute">

@@ -58,16 +58,17 @@
 		<div slot="title">
 			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 			<Ap2 />
-			<div class="controls-buttons flex justify-end space-x-[0.125in]">
-				<button class="flex rotate-180" on:click={prev}>
+			<div class="controls-buttons flex justify-center my-2">
+				<button class="flex rotate-180 scale-75 space-x-[3px] -translate-x-2" on:click={prev}>
+					<div class="bar"></div>
 					<div class="triangle"></div>
-					<div class="triangle"></div>
+					
 				</button>
 				<button on:click={togglePlay}> 
 					<div class="triangle" class:playing={!$player.paused}></div>
 				</button>
-				<button class="flex" on:click={next}>
-					<div class="triangle"></div>
+				<button class="flex scale-75 space-x-[3px] translate-x-2" on:click={next}>
+					<div class="bar"></div>
 					<div class="triangle"></div>
 				</button>
 
@@ -113,7 +114,17 @@
 	}
 
 	.controls-buttons {
-		padding: 0 0.125in 0.03125in 0 ;
+		/* padding: 0 0.125in 0.03125in 0 ; */
+	}
+
+	.bar {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		height: 16px;
+		border-color: transparent transparent transparent #202020;
+		border-style: solid;
+		border-width: 0 0 0 3px;
 	}
 
 	.triangle {
