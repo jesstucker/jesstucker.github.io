@@ -45,13 +45,7 @@
 						: '';
 
 
-	let cardRef: HTMLElement;
-	const rerender = () => {
-		cardRef.style.display = 'none';
-		cardRef.offsetHeight;
-		cardRef.style.display = '';
-	}
-	let bodyHeight: number = 0;
+
 
 </script>
 
@@ -60,33 +54,24 @@
 	<meta name="description" content="$$$$$$" />
 </svelte:head>
 
-<section bind:this={cardRef}>
+<section>
 	<div >
-		<Notecard>
-			<div slot="title">
-				<div class="title">
-					<slot name="title"></slot>
-				</div>
-			</div>
-			<div slot="body">
-				foo
-			</div>
-		</Notecard>
-		<Ap2 />
+		
 		<Notecard >
 			<div slot="title">
+				<Ap2 />
 				<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
-				<div class="controls-buttons flex justify-end my-1 space-x-1 mr-[0.125in] ">
-					<button class="flex rotate-180 space-x-[3px] p-1" on:click={prev}>
-						<div class="bar  origin-center"></div>
-						<div class="triangle "></div>
+				<div class="controls-buttons flex justify-center space-x-1 mb-[0.0625in]">
+					<button class="flex rotate-180 space-x-[1px] px-2 py-1" on:click={prev}>
+						<div class="bar  origin-center scale-75"></div>
+						<div class="triangle scale-75"></div>
 					</button>
 					<button on:click={togglePlay} class="px-3 py-1"> 
 						<div class="triangle" class:playing={!$player.paused}></div>
 					</button>
-					<button class="flex space-x-[3px] p-1" on:click={next}>
-						<div class="bar  origin-center"></div>
-						<div class="triangle "></div>
+					<button class="flex space-x-[1px] px-2  py-1" on:click={next}>
+						<div class="bar  origin-center scale-75"></div>
+						<div class="triangle scale-75 "></div>
 					</button>
 				</div>
 
@@ -94,7 +79,7 @@
 			</div>
 
 			<div slot="body">
-				<div bind:offsetHeight={bodyHeight}>
+				<div>
 					{#each $songs as song,i}
 						<div on:click={() => selectSong(i)}
 							on:keypress={()=>null}
@@ -112,11 +97,11 @@
 
 <style>
 	button {
-		@apply  rounded-md m-0;
+		@apply rounded-sm m-0;
 		background-color: #fffafa;
 	}
 	button:hover {
-		background-color: #eeeeee;
+		background-color: rgba(88, 215, 229, 0.104);
 	}
 	.song:hover {
 		background-color: #FBF71955;

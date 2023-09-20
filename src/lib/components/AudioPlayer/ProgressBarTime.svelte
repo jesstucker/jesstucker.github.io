@@ -22,9 +22,6 @@
 </script>
 
 <div id="progress-bar-cont" class="relative">
-	<div class="flex justify-end absolute top-0 right-0 pr-[0.125in]">
-		{$formattedTimer}
-	</div>
 	<div id="bar" style="width: {progress}%" class="absolute">
 	</div>
 	<div class="scrubber absolute " 
@@ -34,7 +31,9 @@
 		on:click={updatePlayPosition}>
 			<div class="to-position" style="width: {scrubberPosition}%"></div>
 	</div>
-
+	<div class="flex absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none ">
+		{$formattedTimer}
+	</div>
 </div>
 
 <style>
