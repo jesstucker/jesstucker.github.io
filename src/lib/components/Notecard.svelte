@@ -1,17 +1,4 @@
 <script lang="ts">
-	import { afterUpdate } from "svelte";
-
-    // Unfortunate hack to get the height of the body to work
-    let bgWrapper: HTMLElement;
-    let bgHeight: number = 0;
-    let body: HTMLElement;
-
-    afterUpdate(() => 
-        bgHeight = body.offsetHeight > bgWrapper.offsetHeight
-                    ? ( body.offsetHeight - body.offsetTop )
-                    : ( bgWrapper.offsetHeight )
-    )
-
 </script>
 
 <div class="notecard origin-top md:scale-150 transform-gpu" >
@@ -20,11 +7,8 @@
             <slot name="title"></slot>
         </div>
     </div>
-    <div class="body" bind:this={body}>
-        <div class="bg-body" style="height: {bgHeight}px"></div>
-        <div bind:this={bgWrapper}>
-            <slot name="body"></slot>
-        </div>
+    <div class="body">
+        <slot name="body"></slot>
     </div>
 </div>
 
@@ -69,17 +53,20 @@
         padding: 0.0625in 0.125in 0;
         box-sizing: border-box;
         z-index: 0;
+        background-image: linear-gradient(rgba(88, 215, 229, 0.135) 1.5px, transparent 1.5px);
+        background-size: 100% 0.25in;
+        background-attachment: local;
+        background-position-y: 0.25in;
     }
 
     .body::-webkit-scrollbar {
         display: none;
     }
 
-    .bg-body {
+    /* .bg-body {
         position: absolute;
         content: "";
         top: 0.25in;
-        bottom: 0;
         left: 0;
         background-image: linear-gradient(rgba(88, 215, 229, 0.135) 1.5px, transparent 1.5px);
         background-size: 100% 0.25in;
@@ -90,5 +77,5 @@
         flex: 1;
         z-index: -1;
         
-    }
+    } */
 </style>
