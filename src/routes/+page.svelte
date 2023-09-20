@@ -40,6 +40,10 @@
 			})
 	})
 
+	const isEnter = (e:KeyboardEvent) => e.key === 'Enter'
+	const isSpace = (e:KeyboardEvent) => { e.preventDefault(); return e.key === ' ' }
+	
+
 	$: $player.title = $songs[$playIndex]
 						? $songs[$playIndex].title
 						: '';
@@ -78,10 +82,10 @@
 			<div slot="body">
 				<div>
 					{#each $songs as song,i}
-						<div on:click={() => selectSong(i)}
-							on:keypress={()=>null}
+						<div on:click={ () => selectSong(i)}
+							on:keypress={ e => (isSpace(e) || isEnter(e)) && selectSong(i) }
 							class="song"
-							class:active={i === $playIndex}
+							class:active={ i === $playIndex }
 							role="button"
 							tabindex=0
 						>{song.title}</div>
