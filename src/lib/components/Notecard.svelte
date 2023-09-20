@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<div class="notecard origin-top md:scale-150 transform-gpu" >
+<div class="notecard origin-top" >
     <div class="l-title">
         <div class="title">
             <slot name="title"></slot>
@@ -23,6 +23,20 @@
         border: 1px dotted rgba(201, 197, 191, 0.404);
         display: flex;
         flex-direction: column;
+        /* backface-visibility: hidden; */
+        /* transform-style: preserve-3d; */
+        /* transform: translateZ(0); */
+        /* transform: scale(1.5) translateZ(0) translate3d(0,0,0); */
+        /* transform-gpu */
+        /* -webkit-transform: scale(1.5); */
+        transform: matrix(1.5, 0, 0, 1.5, 0, 0);
+        /* transform: translate3d(0,0,0) scale(1.5); */
+        /* transform-style: preserve-3d; */
+        /* transform: matrix3d(1.5, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 1.5, -0.001, 0, 0, 0, 1); */
+        /* -webkit-transform: matrix3d(1.5, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 1.5, -0.001, 0, 0, 0, 1); */
+        /* -webkit-font-smoothing: subpixel-antialiased; */
+        /* transform: translate(-50%, -50%) scale(2);  */
+        /* zoom:0.5; */
     }
     .notecard:hover {
         box-shadow: 0.1em 0.1em 0.2em 1px #81818110;
@@ -56,26 +70,10 @@
         background-image: linear-gradient(rgba(88, 215, 229, 0.135) 1.5px, transparent 1.5px);
         background-size: 100% 0.25in;
         background-attachment: local;
-        background-position-y: 0.25in;
+        background-position-y: calc(0.25in - 1px);
     }
 
     .body::-webkit-scrollbar {
         display: none;
     }
-
-    /* .bg-body {
-        position: absolute;
-        content: "";
-        top: 0.25in;
-        left: 0;
-        background-image: linear-gradient(rgba(88, 215, 229, 0.135) 1.5px, transparent 1.5px);
-        background-size: 100% 0.25in;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        flex: 1;
-        z-index: -1;
-        
-    } */
 </style>

@@ -72,10 +72,10 @@
 				foo
 			</div>
 		</Notecard>
+		<Ap2 />
 		<Notecard >
 			<div slot="title">
 				<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
-				<Ap2 />
 				<div class="controls-buttons flex justify-end my-1 space-x-1 mr-[0.125in] ">
 					<button class="flex rotate-180 space-x-[3px] p-1" on:click={prev}>
 						<div class="bar  origin-center"></div>
@@ -89,10 +89,10 @@
 						<div class="triangle "></div>
 					</button>
 				</div>
-				<div class="">
-					<ProgressBarTime progress={$progressPercent}/>
-				</div>
-				</div>
+
+				<ProgressBarTime progress={$progressPercent}/>
+			</div>
+
 			<div slot="body">
 				<div bind:offsetHeight={bodyHeight}>
 					{#each $songs as song,i}
