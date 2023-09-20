@@ -24,7 +24,7 @@
 <div id="progress-bar-cont" class="relative">
 	<div id="bar" style="width: {progress}%" class="absolute">
 	</div>
-	<div class="scrubber absolute " 
+	<div class="scrubber absolute" 
 		bind:offsetWidth={scrubberWidth}
 		on:mousemove={syncTracking} 
 		on:mouseleave={hideTracking} 

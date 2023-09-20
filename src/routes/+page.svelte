@@ -11,8 +11,8 @@
 		progressPercent
 	} from '$lib/stores';
 	import Notecard from "$lib/components/Notecard.svelte";
-	import ProgressBarTime from "$lib/components/AudioPlayer/ProgressBarTime.svelte";
-	import Ap2 from "$lib/components/AP2.svelte";
+	import ProgressBarTime from "$lib/components/ProgressBarTime.svelte";
+	import AudioPlayer from "$lib/components/AudioPlayer.svelte";
 	
 	let fetchingSongs = Promise.resolve([{
 		name: '',
@@ -44,9 +44,6 @@
 						? $songs[$playIndex].title
 						: '';
 
-
-
-
 </script>
 
 <svelte:head>
@@ -59,7 +56,7 @@
 		
 		<Notecard >
 			<div slot="title">
-				<Ap2 />
+				<AudioPlayer />
 				<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 				<div class="controls-buttons flex justify-center space-x-1 mb-[0.0625in]">
 					<button class="flex rotate-180 space-x-[1px] px-2 py-1" on:click={prev}>
