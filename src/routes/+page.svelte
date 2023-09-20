@@ -9,7 +9,7 @@
 		next,
 		prev,
 		progressPercent
-	} from '$lib/stores'
+	} from '$lib/stores';
 	import Notecard from "$lib/components/Notecard.svelte";
 	import ProgressBarTime from "$lib/components/AudioPlayer/ProgressBarTime.svelte";
 	import Ap2 from "$lib/components/AP2.svelte";
@@ -45,6 +45,13 @@
 						: '';
 
 
+	let cardRef: HTMLElement;
+	const rerender = () => {
+		cardRef.style.display = 'none';
+		cardRef.offsetHeight;
+		cardRef.style.display = '';
+	}
+	let bodyHeight: number = 0;
 
 </script>
 
@@ -53,40 +60,54 @@
 	<meta name="description" content="$$$$$$" />
 </svelte:head>
 
-<section class=" origin-top md:scale-150">
-	<Notecard>
-		<div slot="title">
-			<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
-			<Ap2 />
-			<div class="controls-buttons flex justify-end my-1 space-x-1 mr-[0.125in] ">
-				<button class="flex rotate-180 space-x-[3px] p-1" on:click={prev}>
-					<div class="bar  origin-center"></div>
-					<div class="triangle "></div>
-				</button>
-				<button on:click={togglePlay} class="px-3 py-1"> 
-					<div class="triangle" class:playing={!$player.paused}></div>
-				</button>
-				<button class="flex space-x-[3px] p-1" on:click={next}>
-					<div class="bar  origin-center"></div>
-					<div class="triangle "></div>
-				</button>
+<section bind:this={cardRef}>
+	<div >
+		<Notecard>
+			<div slot="title">
+				<div class="title">
+					<slot name="title"></slot>
+				</div>
 			</div>
-			<div class="">
-				<ProgressBarTime progress={$progressPercent}/>
+			<div slot="body">
+				foo
 			</div>
+		</Notecard>
+		<Notecard >
+			<div slot="title">
+				<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
+				<Ap2 />
+				<div class="controls-buttons flex justify-end my-1 space-x-1 mr-[0.125in] ">
+					<button class="flex rotate-180 space-x-[3px] p-1" on:click={prev}>
+						<div class="bar  origin-center"></div>
+						<div class="triangle "></div>
+					</button>
+					<button on:click={togglePlay} class="px-3 py-1"> 
+						<div class="triangle" class:playing={!$player.paused}></div>
+					</button>
+					<button class="flex space-x-[3px] p-1" on:click={next}>
+						<div class="bar  origin-center"></div>
+						<div class="triangle "></div>
+					</button>
+				</div>
+				<div class="">
+					<ProgressBarTime progress={$progressPercent}/>
+				</div>
+				</div>
+			<div slot="body">
+				<div bind:offsetHeight={bodyHeight}>
+					{#each $songs as song,i}
+						<div on:click={() => selectSong(i)}
+							on:keypress={()=>null}
+							class="song"
+							class:active={i === $playIndex}
+							role="button"
+							tabindex=0
+						>{song.title}</div>
+					{/each}
+				</div>
 			</div>
-		<div slot="body">
-			{#each $songs as song,i}
-				<div on:click={() => selectSong(i)}
-					on:keypress={()=>null}
-					class="song"
-					class:active={i === $playIndex}
-					role="button"
-					tabindex=0
-				>{song.title}</div>
-			{/each}
-		</div>
-	</Notecard>
+		</Notecard>
+	</div>
 </section>
 
 <style>

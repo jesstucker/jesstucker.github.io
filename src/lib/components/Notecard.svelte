@@ -1,22 +1,30 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { afterUpdate } from "svelte";
 
-    let body: HTMLDivElement;
-    let cardHeight = 0;
-    
+    // Unfortunate hack to get the height of the body to work
+    let bgWrapper: HTMLElement;
+    let bgHeight: number = 0;
+    let body: HTMLElement;
 
-    onMount( () => cardHeight = body.scrollHeight )
+    afterUpdate(() => 
+        bgHeight = body.offsetHeight > bgWrapper.offsetHeight
+                    ? ( body.offsetHeight - body.offsetTop )
+                    : ( bgWrapper.offsetHeight )
+    )
+
 </script>
 
-<div class="notecard" >
+<div class="notecard origin-top md:scale-150 transform-gpu" >
     <div class="l-title">
         <div class="title">
             <slot name="title"></slot>
         </div>
     </div>
     <div class="body" bind:this={body}>
-        <div class="bg-body" style="height: {cardHeight}px" ></div>
-        <slot name="body"></slot>
+        <div class="bg-body" style="height: {bgHeight}px"></div>
+        <div bind:this={bgWrapper}>
+            <slot name="body"></slot>
+        </div>
     </div>
 </div>
 
@@ -56,7 +64,7 @@
         position: relative;
         height: 100%;
         width: 100%;
-        overflow: scroll;
+        overflow: auto;
         line-height: 0.25in;
         padding: 0.0625in 0.125in 0;
         box-sizing: border-box;
@@ -71,10 +79,16 @@
         position: absolute;
         content: "";
         top: 0.25in;
+        bottom: 0;
         left: 0;
         background-image: linear-gradient(rgba(88, 215, 229, 0.135) 1.5px, transparent 1.5px);
         background-size: 100% 0.25in;
+        display: flex;
         width: 100%;
+        height: 100%;
+        flex-direction: column;
+        flex: 1;
         z-index: -1;
+        
     }
 </style>
