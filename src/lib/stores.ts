@@ -65,10 +65,12 @@ export const formattedTimer = derived([currentTime, songDuration], ([$currentTim
 );
 
 
-export const next = () => 
+export const next = () => {
     get(songs).length - 1 === get(playIndex)
         ? playIndex.set(0)
         : playIndex.update(p => p + 1);
+    play()
+}
 
 
 export const prev = () =>
