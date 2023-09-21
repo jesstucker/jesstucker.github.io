@@ -64,7 +64,6 @@
         width: 100%;
         overflow: auto;
         line-height: 0.25in;
-        padding: 0.0625in 0.125in 0;
         box-sizing: border-box;
         z-index: 0;
         background-image: linear-gradient(rgba(88, 215, 229, 0.135) 1.5px, transparent 1.5px);

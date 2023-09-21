@@ -42,13 +42,15 @@
 
 	const isEnter = (e:KeyboardEvent) => e.key === 'Enter'
 	const isSpace = (e:KeyboardEvent) => { e.preventDefault(); return e.key === ' ' }
-	
+	// const isNextKey = (e:KeyboardEvent) => console.log(e)
 
 	$: $player.title = $songs[$playIndex]
 						? $songs[$playIndex].title
 						: '';
 
 </script>
+
+<!-- <svelte:window on:keypress={isNextKey}></svelte:window> -->
 
 <svelte:head>
 	<title>Hi</title>
@@ -104,6 +106,11 @@
 	button:hover {
 		background-color: rgba(88, 215, 229, 0.104);
 	}
+
+	.song {
+		padding: 0 0.125in;
+	}
+
 	.song:hover {
 		background-color: #FBF71955;
 	}
