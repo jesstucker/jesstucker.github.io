@@ -24,8 +24,12 @@
 <div id="progress-bar-cont" class="relative">
 	<div id="bar" style="width: {progress}%" class="absolute">
 	</div>
-	<div class="scrubber absolute" 
+	<div class="scrubber absolute"
+		role="slider"
+		aria-valuenow="{$currentTime}"
+		tabindex=0
 		bind:offsetWidth={scrubberWidth}
+		on:keypress={()=>null}
 		on:mousemove={syncTracking} 
 		on:mouseleave={hideTracking} 
 		on:click={updatePlayPosition}>

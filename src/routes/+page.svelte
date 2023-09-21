@@ -58,8 +58,7 @@
 </svelte:head>
 
 <section>
-	<div >
-		
+	<div class=" ">
 		<Notecard >
 			<div slot="title">
 				<AudioPlayer />

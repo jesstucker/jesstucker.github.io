@@ -29,7 +29,10 @@
         /* transform: scale(1.5) translateZ(0) translate3d(0,0,0); */
         /* transform-gpu */
         /* -webkit-transform: scale(1.5); */
-        transform: matrix(1.5, 0, 0, 1.5, 0, 0);
+        
+        @screen lg {
+            transform: matrix(1.5, 0, 0, 1.5, 0, 0);
+        }
         /* transform: translate3d(0,0,0) scale(1.5); */
         /* transform-style: preserve-3d; */
         /* transform: matrix3d(1.5, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 1.5, -0.001, 0, 0, 0, 1); */
@@ -38,6 +41,8 @@
         /* transform: translate(-50%, -50%) scale(2);  */
         /* zoom:0.5; */
     }
+
+    
     .notecard:hover {
         box-shadow: 0.1em 0.1em 0.2em 1px #81818110;
     }
