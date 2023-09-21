@@ -111,11 +111,12 @@
 	}
 
 	.song:hover {
-		background-color: #fbf719bc;
+		
+		background-color: #f8f6aab3;
 	}
 
 	.song.active {
-		background-color: #f8f6aa86;
+		background-color: #fbf719f3;
 		position: sticky;
 		top: 0;
 		bottom: 0;
