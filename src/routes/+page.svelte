@@ -64,14 +64,14 @@
 				<AudioPlayer />
 				<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 				<div class="controls-buttons flex justify-center space-x-1 mb-[0.0625in]">
-					<button class="flex rotate-180 space-x-[1px] px-2 py-1" on:click={prev}>
+					<button class="flex rotate-180 space-x-[1px] px-2 py-1" on:click={prev} aria-label="Previous Track">
 						<div class="bar  origin-center scale-75"></div>
 						<div class="triangle scale-75"></div>
 					</button>
-					<button on:click={togglePlay} class="px-3 py-1"> 
+					<button on:click={togglePlay} class="px-3 py-1" aria-label="Play"> 
 						<div class="triangle" class:playing={!$player.paused}></div>
 					</button>
-					<button class="flex space-x-[1px] px-2  py-1" on:click={next}>
+					<button class="flex space-x-[1px] px-2  py-1" on:click={next} aria-label="Next Track">
 						<div class="bar  origin-center scale-75"></div>
 						<div class="triangle scale-75 "></div>
 					</button>
