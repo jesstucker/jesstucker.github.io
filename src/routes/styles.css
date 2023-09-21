@@ -19,6 +19,7 @@ body {
 	margin: 0;
 	font-family: "Computer Modern", "Times New Roman", Times, serif;
 	font-size: 12px;
+	background-color: #f8f4f333;
 	/* line-height: 1.5; */
 	/* color: #333; */
 	/* background: rgba(255, 251, 246, 0.35); */
@@ -85,7 +86,8 @@ h2 {
 pre {
 	font-size: 16px;
 	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
+	/* background-color: rgba(255, 255, 255, 0.45); */
+	/* background-color: #f8f4f3f2; */
 	border-radius: 3px;
 	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
 	padding: 0.5em;

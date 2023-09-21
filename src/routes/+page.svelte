@@ -103,7 +103,7 @@
 		background-color: #fffafa;
 	}
 	button:hover {
-		background-color: rgba(88, 215, 229, 0.104);
+		background-color: #FFC0CB99;
 	}
 
 	.song {
