@@ -111,7 +111,7 @@
 	}
 
 	.song:hover {
-		background-color: #FBF71955;
+		background-color: #fbf719bc;
 	}
 
 	.song.active {
