@@ -115,7 +115,7 @@
 	}
 
 	.song.active {
-		background-color: #F8F5AA;
+		background-color: #f8f6aab8;
 		position: sticky;
 		top: 0;
 		bottom: 0;

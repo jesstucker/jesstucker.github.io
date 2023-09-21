@@ -25,16 +25,16 @@
 	<div id="bar" style="width: {progress}%" class="absolute">
 	</div>
 	<div class="scrubber absolute"
-		role="slider"
-		aria-valuenow="{$currentTime}"
-		tabindex=0
-		aria-label="Select a position in the song"
-		bind:offsetWidth={scrubberWidth}
-		on:keypress={()=>null}
-		on:mousemove={syncTracking} 
-		on:mouseleave={hideTracking} 
-		on:click={updatePlayPosition}>
-			<div class="to-position" style="width: {scrubberPosition}%"></div>
+		 role="slider"
+		 aria-valuenow="{$currentTime}"
+		 tabindex=0
+		 aria-label="Select a position in the song"
+		 bind:offsetWidth={scrubberWidth}
+		 on:keypress={()=>null}
+		 on:mousemove={syncTracking} 
+		 on:mouseleave={hideTracking} 
+		 on:click={updatePlayPosition}
+		><div class="to-position" style="width: {scrubberPosition}%"></div>
 	</div>
 	<div class="flex absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none ">
 		{$formattedTimer}
