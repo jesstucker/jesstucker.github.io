@@ -28,6 +28,7 @@
 		role="slider"
 		aria-valuenow="{$currentTime}"
 		tabindex=0
+		aria-label="Select a position in the song"
 		bind:offsetWidth={scrubberWidth}
 		on:keypress={()=>null}
 		on:mousemove={syncTracking} 
