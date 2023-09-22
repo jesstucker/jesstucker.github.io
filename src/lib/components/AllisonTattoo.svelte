@@ -313,7 +313,7 @@
 		stroke-width: 0.75px;
 }
 
-.lady-hand {
+/* .lady-hand {
 	animation: shuffle .5s linear infinite;	
 }
 
@@ -322,5 +322,5 @@
   33% { transform: translate(-1px, 0px); }
   66% {transform: translate(1px, 0px);}
   100% { transform: translate(0px, 0px); }
-} 
+}  */
 </style>
