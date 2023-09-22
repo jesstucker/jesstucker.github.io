@@ -58,6 +58,7 @@
 </svelte:head>
 
 <section class="flex justify-center">
+	<div class="mt-0 sm:mt-4">
 		<Notecard >
 			<div slot="title">
 				<AudioPlayer />
@@ -93,7 +94,7 @@
 				</div>
 			</div>
 		</Notecard>
-		
+	</div>
 </section>
 
 
@@ -111,7 +112,6 @@
 	}
 
 	.song:hover {
-		
 		background-color: #f8f6aab3;
 	}
 
