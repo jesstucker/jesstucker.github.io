@@ -14,12 +14,11 @@
 		align-items: center;
 		padding: 0 0.5rem;
 		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
+		font-size: inherit;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
-		transition: color 0.2s linear;
+		transition: color 0.2s linear;	
 	}
 
 	a:hover {

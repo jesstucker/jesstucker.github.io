@@ -5,20 +5,21 @@
 
 <div class="app">
 	<main>
+		<Header />
 		<slot />
 	</main>
 </div>
 
 <style>
 	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+		/* display: flex; */
+		/* flex-direction: column; */
+		/* min-height: 100vh; */
 	}
 
 	main {
-		padding: 1rem;
-		margin: 0 auto;
+		/* padding: 1rem; */
+		/* margin: 0 auto; */
 		box-sizing: border-box;
 	}
 </style>

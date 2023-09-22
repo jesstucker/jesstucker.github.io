@@ -18,7 +18,7 @@
 		name: '',
 		url: ''
 	}])
-	$: console.log(fetchingSongs)
+	// $: console.log(fetchingSongs)
 
 	onMount(() => {
 		fetchingSongs = fetch('https://jt-music.s3.amazonaws.com/')
@@ -57,8 +57,7 @@
 	<meta name="description" content="$$$$$$" />
 </svelte:head>
 
-<section>
-	<div class=" ">
+<section class="flex justify-center">
 		<Notecard >
 			<div slot="title">
 				<AudioPlayer />
@@ -94,8 +93,9 @@
 				</div>
 			</div>
 		</Notecard>
-	</div>
+		
 </section>
+
 
 <style>
 	button {
