@@ -181,184 +181,184 @@
 @keyframes hideshow {
 
   0% { transform: translate(0px, 0px); }
-  33% { transform: translate(0px, -1px); }
-  66% {transform: translate(0px, 1px);}
+  33% { transform: translate(0px, -1%); }
+  66% {transform: translate(0px, 1%);}
   100% { transform: translate(0px, 0px); }
 } 
 
 /*hair*/
 #hair{
-	fill: rgb(136, 136, 136) !important;
-	stroke: rgb(136, 136, 136) !important;
+	fill: rgb(136, 136, 136);
+	stroke: rgb(136, 136, 136);
 }
 
 /*eyebrow*/
 #eyebrow_left {
 	animation: hideshow .5s ease infinite;
-	fill: rgb(136, 136, 136) !important;
-	stroke: rgb(136, 136, 136) !important;
+	fill: rgb(136, 136, 136);
+	stroke: rgb(136, 136, 136);
 }
 /*eyebrow*/
 #eyebrow_right {
 	animation: hideshow .5s linear infinite;
-	fill: rgb(136, 136, 136) !important;
-	stroke: rgb(136, 136, 136) !important;
+	fill: rgb(136, 136, 136);
+	stroke: rgb(136, 136, 136);
 }
 /*face*/
 #face{
-	stroke: rgb(164, 164, 164) !important;
-	fill: #FDFAF8F0 !important;
+	stroke: rgb(164, 164, 164);
+	fill: #FDFAF8F0;
 }
 
 /*neck*/
 #neck{
-	stroke: rgb(164, 164, 164) !important;
-	fill: #FDFAF8F0 !important;
+	stroke: rgb(164, 164, 164);
+	fill: #FDFAF8F0;
 
 }
 
 /*right eye lid */
 #right_eyelid{
-	stroke: rgb(164, 164, 164) !important;
+	stroke: rgb(164, 164, 164);
 }
 /*right eye a*/
 #right_eye{
-	fill: #FBFAF9F0 !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: #FBFAF9F0;
+	stroke: rgb(164, 164, 164);
 }
 /*right eye b*/
 #right_eye_b{
-	fill: rgb(164, 164, 164) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgb(164, 164, 164);
+	stroke: rgb(164, 164, 164);
 }
 /*right eye c*/
 #right_eye_c{
-	fill: rgb(131, 131, 131) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgb(131, 131, 131);
+	stroke: rgb(164, 164, 164);
 }
 
 /*left eye lid*/
 #right_eye_lid{
-	stroke: rgb(164, 164, 164) !important;
+	stroke: rgb(164, 164, 164);
 }
 /*left eye a */
 #left_eye_a{
-	fill: #FBFAF9F0 !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: #FBFAF9F0;
+	stroke: rgb(164, 164, 164);
 }
 /*left eye b */
 #left_eye_b{
-	fill: rgb(164, 164, 164) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgb(164, 164, 164);
+	stroke: rgb(164, 164, 164);
 }
 /*left eye c*/
 #left_eye_c{
-	fill: rgb(164, 164, 164) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgb(164, 164, 164);
+	stroke: rgb(164, 164, 164);
 }
 /*left eye iris d*/
 #left_eye_iric_d{
-	fill: rgb(131, 131, 131) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgb(131, 131, 131);
+	stroke: rgb(164, 164, 164);
 }
 
 /*nose tip*/
 #path5739{
-	fill: rgba(255, 199, 196, 0.063) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgba(255, 199, 196, 0.063);
+	stroke: rgb(164, 164, 164);
 }
 /*nose ridge*/
 #path5848{
-	stroke: rgb(164, 164, 164) !important;
+	stroke: rgb(164, 164, 164);
 }
 /*nose hole right*/
 #path5956{
-	fill: rgb(164, 164, 164) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgb(164, 164, 164);
+	stroke: rgb(164, 164, 164);
 }
 /*nose hole left*/
 #path5958{
-	fill: rgb(164, 164, 164) !important;
-	stroke: rgb(164, 164, 164) !important;	
+	fill: rgb(164, 164, 164);
+	stroke: rgb(164, 164, 164);	
 }
 /*nostril right*/
 #path5844 {
-	stroke: rgb(164, 164, 164) !important;
+	stroke: rgb(164, 164, 164);
 }
 /*nostril left*/
 #path5842 {
-	stroke: rgb(164, 164, 164) !important;
+	stroke: rgb(164, 164, 164);
 }
 /*mouth hole*/
 #path5952{
-	fill: rgba(213, 213, 213, 0.851) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgba(213, 213, 213, 0.851);
+	stroke: rgb(164, 164, 164);
 }
 /*teeth*/
 #path5763{
-	fill: #FBFAF9F0 !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: #FBFAF9F0;
+	stroke: rgb(164, 164, 164);
 }
 /*mouth lips*/
 #path5792{
-	fill: rgba(238, 238, 238, 0.502) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgba(238, 238, 238, 0.502);
+	stroke: rgb(164, 164, 164);
 }
 
 /*cheek right*/
 #path5815{
-	stroke: rgb(164, 164, 164) !important;	
+	stroke: rgb(164, 164, 164);	
 }
 
 /*cheek right detail*/
 #path5833{
-	stroke: rgb(164, 164, 164) !important;	
+	stroke: rgb(164, 164, 164);	
 }
 
 /*cheek left */
 #path5817{
-	stroke: rgb(164, 164, 164) !important;	
+	stroke: rgb(164, 164, 164);	
 }
 
 /*ear left inner*/
 #path5821{
-	stroke: rgb(164, 164, 164) !important;	
+	stroke: rgb(164, 164, 164);	
 }
 
 /*ear left outer a*/
 #path3454{
-	fill: #FDFAF8F0 !important;
-	stroke: rgb(164, 164, 164) !important;	
+	fill: #FDFAF8F0;
+	stroke: rgb(164, 164, 164);	
 }
 
 /*ear left outer b*/
 #path5823{
-	fill: #FDFAF8F0 !important;
-	stroke: rgba(210, 210, 210, 0.502) !important;
+	fill: #FDFAF8F0;
+	stroke: rgba(210, 210, 210, 0.502);
 }
 
 /*ear right inner*/
 #path5825{
-	stroke: rgba(218, 218, 218, 0.502) !important;
-	fill: rgba(218, 218, 218, 0.502) !important;	
+	stroke: rgba(218, 218, 218, 0.502);
+	fill: rgba(218, 218, 218, 0.502);	
 }
 
 /*ear right detail*/
 #path5827{
-	stroke: rgba(206, 206, 206, 0.502) !important;
-	fill: rgba(218, 218, 218, 0.502) !important;	
+	stroke: rgba(206, 206, 206, 0.502);
+	fill: rgba(218, 218, 218, 0.502);	
 }
 
 
 /*shirt*/
 #path5950 {
-	fill: rgba(193, 193, 193, 0.251) !important;
-	stroke: rgb(164, 164, 164) !important;
+	fill: rgba(193, 193, 193, 0.251);
+	stroke: rgb(164, 164, 164);
 
 }
 
 #path5950:hover{
-	fill: pink !important;
+	fill: pink;
 	cursor: help ;
 }
 </style>
