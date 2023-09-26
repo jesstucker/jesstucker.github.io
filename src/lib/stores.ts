@@ -1,16 +1,13 @@
-import { type Writable, writable, get, derived } from "svelte/store";
+import {  
+    writable, 
+    get, 
+    derived
+} from "svelte/store";
+import { persisted } from "$lib/persisted";
 import { formatTimer } from "$lib/utils";
-
 
 export const volume = writable(0.5);
 export const playing = writable(false);
-
-// export const togglePlay = () => {
-//     get(playing)
-//         ? get(track).audioFile.pause()
-//         : get(track).audioFile.play();
-//     playing.update(p => !p);
-// }
 
 interface Track {
     audioFile: HTMLAudioElement,
@@ -20,10 +17,6 @@ interface Track {
     progress: number,
 }
 
-// interface Songs {
-//     title: string,
-//     url: string,
-// }
 
 export const track = writable<Track>({
     audioFile: '',
@@ -34,7 +27,8 @@ export const track = writable<Track>({
 });
 
 
-export const playIndex = writable(0);
+// export const playIndex = writable(0);
+export const playIndex = persisted('playIndex', 0);
 export const audio = writable<HTMLAudioElement>()
 export const player = writable({
     title: "",
@@ -100,7 +94,6 @@ export const play = () => {
     }))}
 
 
-
 export const selectSong = (i:number) => {
     player.update(p => ({
         ...p,
@@ -108,5 +101,6 @@ export const selectSong = (i:number) => {
     }));
     userInteraction.set(true);
     playIndex.set(i);
+    // localPlayIndex.set(i)
     // togglePlay();
 }

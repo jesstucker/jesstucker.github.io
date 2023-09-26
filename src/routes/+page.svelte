@@ -4,21 +4,21 @@
 		songs,
 		selectSong,
 		player,
-		playIndex,
 		togglePlay,
 		next,
 		prev,
-		progressPercent
+		progressPercent,
+		playIndex
 	} from '$lib/stores';
+
 	import Notecard from "$lib/components/Notecard.svelte";
 	import ProgressBarTime from "$lib/components/ProgressBarTime.svelte";
-	import AudioPlayer from "$lib/components/AudioPlayer.svelte";
-	
+
 	let fetchingSongs = Promise.resolve([{
 		name: '',
 		url: ''
 	}])
-	// $: console.log(fetchingSongs)
+
 
 	onMount(() => {
 		fetchingSongs = fetch('https://jt-music.s3.amazonaws.com/')
@@ -42,15 +42,13 @@
 
 	const isEnter = (e:KeyboardEvent) => e.key === 'Enter'
 	const isSpace = (e:KeyboardEvent) => { e.preventDefault(); return e.key === ' ' }
-	// const isNextKey = (e:KeyboardEvent) => console.log(e)
 
 	$: $player.title = $songs[$playIndex]
 						? $songs[$playIndex].title
 						: '';
 
-</script>
 
-<!-- <svelte:window on:keypress={isNextKey}></svelte:window> -->
+</script>
 
 <svelte:head>
 	<title>Hi</title>
@@ -61,7 +59,7 @@
 	<div class="mt-0 sm:mt-4">
 		<Notecard >
 			<div slot="title">
-				<AudioPlayer />
+				
 				<!-- Head's up: Default Audio Player is invisible, but it needs loading  -->
 				<div class="controls-buttons flex justify-center space-x-1 mb-[0.0625in]">
 					<button class="flex rotate-180 space-x-[1px] px-2 py-1" on:click={prev} aria-label="Previous Track">
@@ -83,7 +81,7 @@
 			<div slot="body">
 				<div>
 					{#each $songs as song,i}
-						<div on:click={ () => selectSong(i)}
+						<div on:click={ () => { selectSong(i) }}
 							on:keypress={ e => (isSpace(e) || isEnter(e)) && selectSong(i) }
 							class="song"
 							class:active={ i === $playIndex }
