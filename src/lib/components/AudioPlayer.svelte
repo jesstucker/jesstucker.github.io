@@ -84,7 +84,7 @@
         bind:currentTime={$currentTime}
         bind:paused={$player.paused}
         bind:volume={$player.volume}
-        on:loadstart={() => $player.status = 'loading'}
+        on:loadstart={() => $userInteraction && play()}
         on:loadeddata={() => { $userInteraction && play() }}
         on:play={() => $player.paused = false}
         on:pause={() => $player.paused = true}
@@ -95,5 +95,6 @@
         on:ended={next}
         src={$songs[$playIndex].src}
         preload="auto"
+        autoplay={true}
     ></audio>
 {/await}
