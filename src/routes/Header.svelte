@@ -61,5 +61,6 @@
 	header { transition: transform 0.2s ease-in-out }
 	.isScrollingDown { transform: translateY(-100%) }
 	.isScrollingUp { transform: translateY(0%) }
+	
 
 </style>

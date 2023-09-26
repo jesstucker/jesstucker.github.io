@@ -87,11 +87,16 @@ export const togglePlay = () =>
         : pause();
 
 export const play = () => {
-    get(audio).play();
-    player.update(p => ({
-        ...p,
-        paused: false,
-    }))}
+    get(audio)
+        .play()
+        .then((e) => console.log(e, 'i played'))
+        // .then(() =>
+        // player.update(p => ({
+        //     ...p,
+        //     paused: false,
+        // })))
+    }
+    
 
 
 export const selectSong = (i:number) => {
