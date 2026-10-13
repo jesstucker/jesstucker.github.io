@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import A from '$lib/components/A.svelte';
-	import SelfPortrait from '$lib/components/SelfPortrait.svelte';
-	import { player, togglePlay, next, prev, formattedTimer } from '$lib/stores';
+	import { page } from '$app/state';
+	import A from '#lib/components/A.svelte';
+	import SelfPortrait from '#lib/components/SelfPortrait.svelte';
+	import { player, togglePlay, next, prev, formattedTimer } from '#lib/stores';
 	let prevScroll = 0;
 	let isScrollingDown = false;
 	function checkScroll(e: UIEvent) {
@@ -19,14 +19,14 @@
 	{ isScrollingDown ? 'isScrollingDown' : 'isScrollingUp'}">
 	<nav>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
 				<A href="/">
 					<div class="w-24">
 						<SelfPortrait />
 					</div>
 				</A>
 			</li>
-			<li aria-current={$page.url.pathname === '/export' ? 'page' : undefined}>
+			<li aria-current={page.url.pathname === '/export' ? 'page' : undefined}>
 				<div class="text-md sm:text-lg">
 					<A href="/export">Export</A>
 				</div>
@@ -34,7 +34,7 @@
 		</ul>
 	</nav>
 </header>
-{#if $page.url.pathname !== '/'}
+{#if page.url.pathname !== '/'}
 	<div class="flex flex-col align-middle justify-center">
 		<div class="controls-buttons flex justify-center gap-1 mb-[0.0625in]">
 			<button class="flex rotate-180 space-x-[1px] px-2 py-1" on:click={prev} aria-label="Previous Track">

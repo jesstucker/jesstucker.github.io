@@ -13,7 +13,7 @@
         togglePlay,
         songs,
 		userInteraction,
-    } from '$lib/stores'
+    } from '#lib/stores'
                 
     let fetchingSongs = Promise.resolve([{
         title: '',

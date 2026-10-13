@@ -1,11 +1,10 @@
 <script>
-    import { base } from '$app/paths';
-	import { page } from '$app/stores';
+    import { resolve } from '$app/paths';
+	import { page } from '$app/state';
     export let href = '';
-	$:console.log($page.url.pathname)
 </script>
 
-<a href="{base}{href}" class:active={$page.url.pathname === href} >
+<a href={resolve(href)} class:active={page.url.pathname === href} >
     <slot></slot>
 </a>
 

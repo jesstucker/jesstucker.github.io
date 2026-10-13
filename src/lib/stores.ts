@@ -3,8 +3,8 @@ import {
     get, 
     derived
 } from "svelte/store";
-import { persisted } from "$lib/persisted";
-import { formatTimer } from "$lib/utils";
+import { persisted } from "#lib/persisted";
+import { formatTimer } from "#lib/utils";
 
 export const volume = writable(0.5);
 export const playing = writable(false);

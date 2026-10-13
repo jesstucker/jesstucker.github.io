@@ -9,10 +9,10 @@
 		prev,
 		progressPercent,
 		playIndex
-	} from '$lib/stores';
+	} from '#lib/stores';
 
-	import Notecard from "$lib/components/Notecard.svelte";
-	import ProgressBarTime from "$lib/components/ProgressBarTime.svelte";
+	import Notecard from "#lib/components/Notecard.svelte";
+	import ProgressBarTime from "#lib/components/ProgressBarTime.svelte";
 
 	let fetchingSongs = Promise.resolve([{
 		name: '',
@@ -98,7 +98,8 @@
 
 <style>
 	button {
-		@apply rounded-sm m-0;
+		margin: 0;
+		border-radius: 0.125rem;
 		background-color: #fffafa;
 	}
 	button:hover {

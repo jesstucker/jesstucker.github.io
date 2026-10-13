@@ -1,5 +1,5 @@
 <script>
-	import AllisonTattoo from "$lib/components/AllisonTattoo.svelte";
+	import AllisonTattoo from "#lib/components/AllisonTattoo.svelte";
 </script>
 
 <svelte:head>

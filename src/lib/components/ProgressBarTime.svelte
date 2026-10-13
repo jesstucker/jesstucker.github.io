@@ -3,7 +3,7 @@
 		currentTime,
 		songDuration,
 		formattedTimer
-	} from '$lib/stores'
+	} from '#lib/stores'
 
 	export let progress:number;
 

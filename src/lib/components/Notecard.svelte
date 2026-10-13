@@ -29,8 +29,8 @@
         /* transform: scale(1.5) translateZ(0) translate3d(0,0,0); */
         /* transform-gpu */
         /* -webkit-transform: scale(1.5); */
-        
-        @screen lg {
+
+        @media (min-width: 64rem) {
             transform: matrix(1.5, 0, 0, 1.5, 0, 0);
         }
         /* transform: translate3d(0,0,0) scale(1.5); */
